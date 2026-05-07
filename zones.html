@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zones — Naah Collective</title>
+<meta name="description" content="Explore Mérida's top investment zones — Centro, Cholul, and Conkal.">
+<link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #E1C790;
+  --gold-dark: #C4A665;
+  --gold-light: #F0DFB8;
+  --black: #0A0A0A;
+  --white: #FAFAF8;
+  --gray-100: #F4F4F2;
+  --gray-200: #E8E8E4;
+  --gray-400: #9A9A94;
+  --gray-600: #5A5A54;
+  --cream: #FBF7F1;
+  --terracotta: #B85C38;
+  --light-clay: #EDD9C0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Glacial Indifference', 'Trebuchet MS', sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: 'Finger Paint', cursive; font-weight: 400; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  background: rgba(10,10,10,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(225,199,144,0.12);
+}
+
+.nav-logo img { height: 48px; width: auto; display: block; }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(250,250,248,0.65);
+  text-decoration: none;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+.nav-cta {
+  background: var(--gold) !important;
+  color: var(--black) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  font-weight: 700 !important;
+}
+.nav-cta:hover { background: var(--gold-dark) !important; }
+
+/* PAGE HERO */
+.page-hero {
+  background: var(--black);
+  padding: 10rem 3rem 5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(225,199,144,0.15);
+}
+
+.page-hero-label {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.page-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.page-hero p {
+  font-family: 'Glacial Indifference', sans-serif;
+  color: rgba(250,250,248,0.6);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* ZONE NAV TABS */
+.zone-tabs {
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-top: 1px solid rgba(225,199,144,0.1);
+  position: sticky;
+  top: 70px;
+  z-index: 100;
+}
+
+.zone-tab {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.5);
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.zone-tab:hover, .zone-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ZONE SECTION */
+.zone {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  border-bottom: 1px solid var(--light-clay);
+}
+.zone:last-of-type { border-bottom: none; }
+
+.zone-label {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 0.5rem;
+}
+
+.zone-name {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1;
+  color: var(--black);
+  margin-bottom: 0.3rem;
+}
+
+.zone-subtitle {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gray-400);
+  margin-bottom: 2rem;
+}
+
+.gold-rule {
+  width: 56px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 2rem;
+}
+
+.zone-intro {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: #3D3530;
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--light-clay);
+  border: 1px solid var(--light-clay);
+  margin-bottom: 2.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stat {
+  background: var(--cream);
+  padding: 1.4rem 1.25rem;
+}
+
+.stat-value {
+  font-family: 'Finger Paint', cursive;
+  font-size: 1.6rem;
+  color: var(--terracotta);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.stat-label {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+/* INVESTOR CARDS */
+.sub-label {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 1rem;
+}
+
+.investor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.investor-card {
+  border: 1px solid var(--light-clay);
+  padding: 1.25rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.investor-type {
+  font-size: 1rem;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+}
+
+.investor-desc {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  line-height: 1.65;
+}
+
+/* OPPORTUNITIES */
+.opp-list { list-style: none; margin-bottom: 2.5rem; }
+
+.opp-list li {
+  font-family: 'Glacial Indifference', sans-serif;
+  padding: 0.85rem 0 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--light-clay);
+  font-size: 0.9rem;
+  color: #3D3530;
+  line-height: 1.6;
+  position: relative;
+}
+.opp-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dark);
+}
+
+/* ACCENT BOX */
+.accent-box {
+  background: var(--black);
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--gold);
+}
+
+.accent-box-title {
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.accent-box p {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: rgba(250,250,248,0.8);
+}
+
+/* CTA FOOTER */
+.zones-cta {
+  background: var(--black);
+  text-align: center;
+  padding: 5rem 3rem;
+  border-top: 1px solid rgba(225,199,144,0.15);
+}
+
+.zones-cta h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.zones-cta p {
+  font-family: 'Glacial Indifference', sans-serif;
+  color: rgba(250,250,248,0.6);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+  padding: 0.85rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+.btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  padding: 0.85rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  padding: 2rem 3rem;
+  border-top: 1px solid rgba(225,199,144,0.08);
+}
+
+.footer-bottom {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(250,250,248,0.3);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(250,250,248,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+/* ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 600px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .page-hero { padding: 8rem 1.25rem 3rem; }
+  .zone { padding: 3.5rem 1.25rem; }
+  .zone-tabs { gap: 0; overflow-x: auto; }
+  .zone-tab { padding: 1rem 1.25rem; white-space: nowrap; }
+  .zones-cta { padding: 4rem 1.25rem; }
+  footer { padding: 1.5rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Naah_White.png" alt="Naah Collective">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About us</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="zones.html" class="active">Zones</a></li>
+    <li><a href="index.html#properties">Properties</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact us</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="page-hero-label">Investment Zones</p>
+  <h1>Explore Mérida's<br>key markets</h1>
+  <p>Three distinct zones, three different opportunities. Find the one that matches your investment goals.</p>
+</div>
+
+<!-- ZONE TABS -->
+<div class="zone-tabs">
+  <a href="#centro" class="zone-tab">Centro</a>
+  <a href="#cholul" class="zone-tab">Cholul</a>
+  <a href="#conkal" class="zone-tab">Conkal</a>
+</div>
+
+<!-- CENTRO -->
+<section class="zone reveal" id="centro">
+  <div class="zone-label">Zone 01 — Historic District</div>
+  <h2 class="zone-name">Centro</h2>
+  <p class="zone-subtitle">Where history meets high returns</p>
+  <div class="gold-rule"></div>
+  <p class="zone-intro">Mérida's historic centre is one of the most architecturally rich neighbourhoods in Latin America. Colonial mansions, cobblestone streets, and a thriving cultural scene make Centro the first choice for lifestyle buyers, expat renovators, and short-term rental investors seeking premium Airbnb yields. Demand consistently outpaces supply as inventory of authentic colonial homes is finite.</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">$80k–$400k+</div>
+      <div class="stat-label">Entry Range (USD)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">8–14%</div>
+      <div class="stat-label">Est. STR Gross Yield</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">High</div>
+      <div class="stat-label">Appreciation Outlook</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Strong</div>
+      <div class="stat-label">Expat & Tourist Demand</div>
+    </div>
+  </div>
+
+  <p class="sub-label">Ideal For</p>
+  <div class="investor-grid">
+    <div class="investor-card">
+      <h3 class="investor-type">Airbnb Investors</h3>
+      <p class="investor-desc">High nightly rates driven by tourism and the expat community. Colonial aesthetic commands premium pricing on short-term rental platforms.</p>
+    </div>
+    <div class="investor-card">
+      <h3 class="investor-type">Lifestyle Buyers</h3>
+      <p class="investor-desc">Expats and remote workers seeking a primary or secondary residence in a walkable, vibrant neighbourhood with world-class food and culture.</p>
+    </div>
+    <div class="investor-card">
+      <h3 class="investor-type">Renovation Investors</h3>
+      <p class="investor-desc">Buyers who acquire distressed colonials, renovate, and either flip or hold. Strong value-add potential with the right local team.</p>
+    </div>
+  </div>
+
+  <p class="sub-label">Key Opportunities</p>
+  <ul class="opp-list">
+    <li>Distressed colonial homes with original architecture — high renovation upside</li>
+    <li>Boutique rental properties targeting the growing digital nomad market</li>
+    <li>Long-term holds benefiting from Mérida's consistent year-on-year price appreciation</li>
+    <li>Mixed-use ground floor commercial + residential upper floors</li>
+  </ul>
+
+  <div class="accent-box">
+    <h3 class="accent-box-title">Why Centro Now?</h3>
+    <p>Mérida has been ranked one of the safest cities in Mexico for over a decade. As more North American and European buyers discover the city, Centro properties are being acquired faster than they come to market. Early movers in the current cycle are already seeing significant appreciation on purchases made 3–5 years ago.</p>
+  </div>
+</section>
+
+<!-- CHOLUL -->
+<section class="zone reveal" id="cholul">
+  <div class="zone-label">Zone 02 — Northern Growth Corridor</div>
+  <h2 class="zone-name">Cholul</h2>
+  <p class="zone-subtitle">Affordable entry, strong appreciation ahead</p>
+  <div class="gold-rule"></div>
+  <p class="zone-intro">Just north of Mérida's city limits, Cholul is one of the fastest-growing residential areas in the Yucatan. A wave of new residential developments, improved road infrastructure, and proximity to the city's northern commercial corridor has positioned Cholul as an ideal market for investors seeking capital appreciation at accessible price points.</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">$60k–$180k</div>
+      <div class="stat-label">Entry Range (USD)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">6–9%</div>
+      <div class="stat-label">Est. LTR Gross Yield</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Very High</div>
+      <div class="stat-label">Appreciation Outlook</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Growing</div>
+      <div class="stat-label">Rental Demand</div>
+    </div>
+  </div>
+
+  <p class="sub-label">Ideal For</p>
+  <div class="investor-grid">
+    <div class="investor-card">
+      <h3 class="investor-type">Buy & Hold Investors</h3>
+      <p class="investor-desc">Lower acquisition costs with strong medium-term appreciation as urban expansion pushes northward and infrastructure improves.</p>
+    </div>
+    <div class="investor-card">
+      <h3 class="investor-type">Long-Term Rental</h3>
+      <p class="investor-desc">Steady demand from Mexican professionals and younger expats. Family-sized homes attract stable, long-term tenants.</p>
+    </div>
+    <div class="investor-card">
+      <h3 class="investor-type">New Build Buyers</h3>
+      <p class="investor-desc">Developer pre-sales offer below-market entry. Buy at construction pricing and capture value as the area matures.</p>
+    </div>
+  </div>
+
+  <p class="sub-label">Key Opportunities</p>
+  <ul class="opp-list">
+    <li>Pre-sale new builds from local developers — buy at the lowest point in the cycle</li>
+    <li>Land plots with development potential as zoning evolves</li>
+    <li>Single-family homes for the growing professional rental market</li>
+    <li>Portfolio plays — acquire multiple lower-cost units for diversified cash flow</li>
+  </ul>
+
+  <div class="accent-box">
+    <h3 class="accent-box-title">The Growth Story</h3>
+    <p>Mérida's population and economy have expanded significantly over the past decade, and the city's growth is visibly moving northward. Areas like Cholul that were considered far from the city just five years ago are now a short drive from major shopping centres, hospitals, and schools. Investors who enter now are positioning ahead of the next infrastructure wave.</p>
+  </div>
+</section>
+
+<!-- CONKAL -->
+<section class="zone reveal" id="conkal">
+  <div class="zone-label">Zone 03 — Northern Expansion</div>
+  <h2 class="zone-name">Conkal</h2>
+  <p class="zone-subtitle">The frontier of Mérida's northward expansion</p>
+  <div class="gold-rule"></div>
+  <p class="zone-intro">Conkal sits at the edge of Mérida's expanding metropolitan area and represents one of the most compelling early-stage investment opportunities in the region. With large land parcels still available, new residential communities under development, and improving connectivity, Conkal attracts investors with a medium-to-long-term horizon who want maximum upside at the lowest entry cost in the market.</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">$40k–$130k</div>
+      <div class="stat-label">Entry Range (USD)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">High</div>
+      <div class="stat-label">Appreciation Potential</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Emerging</div>
+      <div class="stat-label">Market Stage</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Low</div>
+      <div class="stat-label">Current Competition</div>
+    </div>
+  </div>
+
+  <p class="sub-label">Ideal For</p>
+  <div class="investor-grid">
+    <div class="investor-card">
+      <h3 class="investor-type">Land Investors</h3>
+      <p class="investor-desc">Land in Conkal remains affordable. As the city expands and rezoning occurs, early land holders stand to gain significantly.</p>
+    </div>
+    <div class="investor-card">
+      <h3 class="investor-type">Developer Partners</h3>
+      <p class="investor-desc">Opportunity to partner with local developers building new residential communities targeting Mérida's growing middle class.</p>
+    </div>
+    <div class="investor-card">
+      <h3 class="investor-type">Long-Horizon Investors</h3>
+      <p class="investor-desc">Investors comfortable with a 5–10 year horizon who want to enter an emerging market before pricing reflects its full potential.</p>
+    </div>
+  </div>
+
+  <p class="sub-label">Key Opportunities</p>
+  <ul class="opp-list">
+    <li>Land acquisition ahead of the next phase of urban expansion</li>
+    <li>New residential development projects at pre-launch pricing</li>
+    <li>Affordable housing plays catering to Mérida's growing workforce</li>
+    <li>Early positioning in a market that mirrors where Cholul was 5 years ago</li>
+  </ul>
+
+  <div class="accent-box">
+    <h3 class="accent-box-title">The Early Mover Advantage</h3>
+    <p>Every established neighbourhood in Mérida's north — from Altabrisa to Santa Gertrudis Copó — was once considered "too far out." Conkal is at that inflection point today. Investors who entered those areas early captured strong returns over five-year holds. Conkal presents a comparable window of opportunity right now.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="zones-cta">
+  <h2>Ready to explore a zone?</h2>
+  <p>Get in touch and we'll walk you through the current opportunities in whichever area fits your goals.</p>
+  <a href="https://wa.me/529993355302" class="btn-primary" target="_blank">WhatsApp us</a>
+  <a href="index.html" class="btn-outline">Back to home</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <p>Copyright © 2025 Naah Collective. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://instagram.com/naahcollective" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Highlight active zone tab on scroll
+const zones = ['centro','cholul','conkal'];
+const tabs = document.querySelectorAll('.zone-tab');
+window.addEventListener('scroll', () => {
+  let current = '';
+  zones.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 160) current = id;
+  });
+  tabs.forEach(t => {
+    t.classList.toggle('active', t.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+</body>
+</html>
