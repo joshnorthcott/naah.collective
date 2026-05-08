@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0050)file:///Users/joshnorthcott/Downloads/index_2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Naah Collective — Merida Real Estate</title>
 <meta name="description" content="A curated collective helping you buy and invest in Mérida with clarity and confidence.">
-<link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
+<link href="./Naah Collective — Merida Real Estate_files/css2" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -689,6 +689,160 @@ footer {
 }
 .social-links a:hover { border-color: var(--gold); color: var(--gold); }
 
+/* ── LISTINGS / SOCIAL ── */
+.listings-section {
+  background: var(--black);
+  padding: 6rem 3rem;
+}
+
+.listings-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.listings-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.listings-header .section-label { justify-content: center; display: block; }
+.listings-header .section-title { color: var(--white); }
+
+.listings-sub {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.97rem;
+  color: rgba(250,250,248,0.55);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.social-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.social-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  min-height: 280px;
+  transition: transform 0.3s;
+}
+.social-card:hover { transform: translateY(-5px); }
+
+.social-card--fb .social-card-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.social-card--ig .social-card-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2d1b33 0%, #4a1942 40%, #6b2d5e 70%, #8b4a6b 100%);
+}
+
+.social-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  border: 1px solid rgba(225,199,144,0.15);
+  transition: border-color 0.3s;
+  pointer-events: none;
+}
+.social-card:hover::after { border-color: rgba(225,199,144,0.45); }
+
+.social-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.social-icon {
+  width: 56px; height: 56px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.social-card-text { flex: 1; }
+
+.social-platform {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.social-card h3 {
+  font-size: 1.6rem;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.social-card p {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.social-update {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.social-update::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+.social-arrow {
+  align-self: flex-end;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.social-card:hover .social-arrow {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.social-card:hover .social-arrow svg path { stroke: var(--black); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
@@ -706,7 +860,7 @@ footer {
 @media (max-width: 900px) {
   .about { grid-template-columns: 1fr; gap: 2.5rem; }
   .services-grid { grid-template-columns: 1fr; }
-  .properties-grid { grid-template-columns: 1fr 1fr; }
+  .social-cards { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 
@@ -716,10 +870,9 @@ footer {
   .hero { padding: 0 1.25rem 3.5rem; }
   .trust-bar { padding: 1.25rem 1.25rem; gap: 1.25rem; }
   .about-wrap, .services-wrap, .faq-section { padding: 4rem 1.25rem; }
-  .properties-section { padding: 4rem 1.25rem; }
+  .listings-section { padding: 4rem 1.25rem; }
   .cta-section { padding: 5rem 1.25rem; }
   footer { padding: 3rem 1.25rem 1.5rem; }
-  .properties-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
 }
 </style>
@@ -728,16 +881,16 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">
-    <img src="Naah_White.png" alt="Naah Collective">
+  <a href="file:///Users/joshnorthcott/Downloads/index.html" class="nav-logo">
+    <img src="./Naah Collective — Merida Real Estate_files/Naah_White.png" alt="Naah Collective">
   </a>
   <ul class="nav-links">
-    <li><a href="#about">About us</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="zones.html">Zones</a></li>
-    <li><a href="#properties">Properties</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-cta">Contact us</a></li>
+    <li><a href="file:///Users/joshnorthcott/Downloads/index_2.html#about">About us</a></li>
+    <li><a href="file:///Users/joshnorthcott/Downloads/index_2.html#services">Services</a></li>
+    <li><a href="file:///Users/joshnorthcott/Downloads/zones.html">Zones</a></li>
+    <li><a href="file:///Users/joshnorthcott/Downloads/index_2.html#properties">Listings</a></li>
+    <li><a href="file:///Users/joshnorthcott/Downloads/index_2.html#faq">FAQ</a></li>
+    <li><a href="file:///Users/joshnorthcott/Downloads/index_2.html#contact" class="nav-cta">Contact us</a></li>
   </ul>
 </nav>
 
@@ -749,8 +902,8 @@ footer {
     <h1>Find your place,<br>the right way</h1>
     <p>A curated collective helping you buy and invest in Mérida with clarity and confidence.</p>
     <div class="hero-buttons">
-      <a href="#contact" class="btn-primary">Contact us</a>
-      <a href="#services" class="btn-outline">View services</a>
+      <a href="file:///Users/joshnorthcott/Downloads/index_2.html#contact" class="btn-primary">Contact us</a>
+      <a href="file:///Users/joshnorthcott/Downloads/index_2.html#services" class="btn-outline">View services</a>
     </div>
   </div>
 </section>
@@ -769,7 +922,7 @@ footer {
     <div class="about-text">
       <p class="section-label">Who we are</p>
       <h2 class="section-title">Not a traditional agency</h2>
-      <p>We are a collective of independent experts focused on better decisions, not faster sales.</p>
+      <p>"Naah" means home in Mayan — because this is about more than just property. We are a collective of independent experts focused on better decisions, not faster sales.</p>
       <p>We work exclusively in Mérida and the surrounding municipalities, which means every recommendation we make is grounded in real, local knowledge.</p>
       <div class="about-pills">
         <span class="pill">Independent experts</span>
@@ -798,14 +951,14 @@ footer {
 
       <!-- Card 1 -->
       <div class="service-card reveal">
-        <img src="https://framerusercontent.com/images/p5tc5gEahilUEPftZYoZUlRl4.png" alt="No pressure guidance" loading="lazy">
+        <img src="file:///Users/joshnorthcott/Downloads/service1.jpg" alt="No pressure guidance" loading="lazy">
         <div class="service-card-content">
           <div class="service-icon">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Hand / guidance icon -->
-              <path d="M11 2C11 2 7 6 7 11C7 13.76 8.24 16.24 10.18 17.9L11 18.6L11.82 17.9C13.76 16.24 15 13.76 15 11C15 6 11 2 11 2Z" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
-              <circle cx="11" cy="11" r="2" fill="#0A0A0A"/>
-              <path d="M4 20H18" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M11 2C11 2 7 6 7 11C7 13.76 8.24 16.24 10.18 17.9L11 18.6L11.82 17.9C13.76 16.24 15 13.76 15 11C15 6 11 2 11 2Z" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"></path>
+              <circle cx="11" cy="11" r="2" fill="#0A0A0A"></circle>
+              <path d="M4 20H18" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"></path>
             </svg>
           </div>
           <p class="service-num">001/</p>
@@ -816,12 +969,12 @@ footer {
 
       <!-- Card 2 -->
       <div class="service-card reveal">
-        <img src="https://framerusercontent.com/images/rP29x9tN9WSsCKHhMx0tj2KcFKE.png" alt="Curated opportunities" loading="lazy">
+        <img src="file:///Users/joshnorthcott/Downloads/service2.jpg" alt="Curated opportunities" loading="lazy">
         <div class="service-card-content">
           <div class="service-icon">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Star / curated icon -->
-              <path d="M11 2L13.39 8.26L20 9.27L15.5 13.64L16.78 20.23L11 17L5.22 20.23L6.5 13.64L2 9.27L8.61 8.26L11 2Z" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M11 2L13.39 8.26L20 9.27L15.5 13.64L16.78 20.23L11 17L5.22 20.23L6.5 13.64L2 9.27L8.61 8.26L11 2Z" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"></path>
             </svg>
           </div>
           <p class="service-num">002/</p>
@@ -832,14 +985,14 @@ footer {
 
       <!-- Card 3 -->
       <div class="service-card reveal">
-        <img src="https://framerusercontent.com/images/12R5AFe9bmGhyVEBo97PQYx7c0.png" alt="Local insight" loading="lazy">
+        <img src="file:///Users/joshnorthcott/Downloads/service3.jpg" alt="Local insight" loading="lazy">
         <div class="service-card-content">
           <div class="service-icon">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Map pin / local icon -->
-              <path d="M11 2C8.24 2 6 4.24 6 7C6 11.25 11 18 11 18C11 18 16 11.25 16 7C16 4.24 13.76 2 11 2Z" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
-              <circle cx="11" cy="7" r="2" stroke="#0A0A0A" stroke-width="1.5"/>
-              <path d="M6 20C6 20 7.5 19 11 19C14.5 19 16 20 16 20" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M11 2C8.24 2 6 4.24 6 7C6 11.25 11 18 11 18C11 18 16 11.25 16 7C16 4.24 13.76 2 11 2Z" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"></path>
+              <circle cx="11" cy="7" r="2" stroke="#0A0A0A" stroke-width="1.5"></circle>
+              <path d="M6 20C6 20 7.5 19 11 19C14.5 19 16 20 16 20" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"></path>
             </svg>
           </div>
           <p class="service-num">003/</p>
@@ -850,17 +1003,17 @@ footer {
 
       <!-- Card 4 -->
       <div class="service-card reveal">
-        <img src="https://framerusercontent.com/images/12R5AFe9bmGhyVEBo97PQYx7c0.png" alt="Built for foreign buyers" loading="lazy">
+        <img src="file:///Users/joshnorthcott/Downloads/service4.jpg" alt="Built for foreign buyers" loading="lazy">
         <div class="service-card-content">
           <div class="service-icon">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Globe / international icon -->
-              <circle cx="11" cy="11" r="9" stroke="#0A0A0A" stroke-width="1.5"/>
-              <path d="M11 2C11 2 8 6 8 11C8 16 11 20 11 20" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M11 2C11 2 14 6 14 11C14 16 11 20 11 20" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M2 11H20" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M3.5 7H18.5" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M3.5 15H18.5" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="11" cy="11" r="9" stroke="#0A0A0A" stroke-width="1.5"></circle>
+              <path d="M11 2C11 2 8 6 8 11C8 16 11 20 11 20" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M11 2C11 2 14 6 14 11C14 16 11 20 11 20" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M2 11H20" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M3.5 7H18.5" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M3.5 15H18.5" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round"></path>
             </svg>
           </div>
           <p class="service-num">004/</p>
@@ -873,62 +1026,64 @@ footer {
   </div>
 </div>
 
-<!-- PROPERTIES -->
-<div class="properties-section" id="properties">
-  <div class="properties-inner">
-    <div class="properties-header reveal">
-      <div>
-        <p class="section-label">Active listings</p>
-        <h2 class="section-title">Featured properties</h2>
-      </div>
-      <a href="#contact" class="btn-primary" style="font-size:0.85rem; padding:0.7rem 1.5rem;">View all</a>
+<!-- LISTINGS -->
+<div class="listings-section" id="properties">
+  <div class="listings-inner">
+    <div class="listings-header reveal">
+      <p class="section-label">Active listings</p>
+      <h2 class="section-title">Browse our listings</h2>
+      <p class="listings-sub">We post new properties regularly across our social channels — from colonial homes in Centro to new builds in Cholul and Conkal. Follow us to stay ahead of the market.</p>
     </div>
-    <div class="properties-grid">
-      <div class="property-card reveal">
-        <div class="property-img">
-          <img src="https://framerusercontent.com/images/OIA4KOqlHTTQ7VHtp6JLW5EfCBg.png" alt="Maple Heights" loading="lazy">
-          <span class="property-badge">For Sale</span>
-        </div>
-        <div class="property-info">
-          <h3>Maple Heights</h3>
-          <p>Elegant suburban home offering comfort, style, modern amenities, and family-friendly living.</p>
-          <div class="property-meta">
-            <span>🛏 3 beds</span>
-            <span>🚿 3 baths</span>
-            <span>📐 1,950 sq.ft</span>
+    <div class="social-cards reveal">
+
+      <!-- Facebook -->
+      <a href="https://facebook.com/naahcollective" target="_blank" class="social-card social-card--fb">
+        <div class="social-card-bg"></div>
+        <div class="social-card-content">
+          <div class="social-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M28 14C28 6.268 21.732 0 14 0S0 6.268 0 14c0 6.99 5.12 12.777 11.813 13.837V18.05H8.258V14h3.555v-3.084c0-3.508 2.09-5.447 5.29-5.447 1.532 0 3.135.274 3.135.274v3.445h-1.766c-1.74 0-2.282 1.08-2.282 2.187V14h3.883l-.621 4.05h-3.262v9.787C22.88 26.777 28 20.99 28 14Z" fill="white"></path>
+            </svg>
+          </div>
+          <div class="social-card-text">
+            <span class="social-platform">Facebook</span>
+            <h3>Naah Collective</h3>
+            <p>Browse our full property catalogue, including detailed listings, photos, and pricing.</p>
+            <span class="social-update">New listings added weekly</span>
+          </div>
+          <div class="social-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
           </div>
         </div>
-      </div>
-      <div class="property-card reveal">
-        <div class="property-img">
-          <img src="https://framerusercontent.com/images/2lmp9Uw5TNs4HAWwUFKcSZMS3iE.png" alt="Cedar Point" loading="lazy">
-          <span class="property-badge">For Rent</span>
-        </div>
-        <div class="property-info">
-          <h3>Cedar Point</h3>
-          <p>Modern luxury penthouse offering stunning skyline views, spacious interiors, and top amenities.</p>
-          <div class="property-meta">
-            <span>🛏 2 beds</span>
-            <span>🚿 2 baths</span>
-            <span>📐 1,450 sq.ft</span>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/naahcollective" target="_blank" class="social-card social-card--ig">
+        <div class="social-card-bg"></div>
+        <div class="social-card-content">
+          <div class="social-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="24" height="24" rx="7" stroke="white" stroke-width="2"></rect>
+              <circle cx="14" cy="14" r="5" stroke="white" stroke-width="2"></circle>
+              <circle cx="21" cy="7" r="1.5" fill="white"></circle>
+            </svg>
+          </div>
+          <div class="social-card-text">
+            <span class="social-platform">Instagram</span>
+            <h3>@naahcollective</h3>
+            <p>Follow for property highlights, neighbourhood reels, and market insights from Mérida.</p>
+            <span class="social-update">Follow for daily updates</span>
+          </div>
+          <div class="social-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
           </div>
         </div>
-      </div>
-      <div class="property-card reveal">
-        <div class="property-img">
-          <img src="https://framerusercontent.com/images/4sITvRLV2KuzFMMekbBdLsgm9r8.png" alt="Skyline Haven" loading="lazy">
-          <span class="property-badge">For Rent</span>
-        </div>
-        <div class="property-info">
-          <h3>Skyline Haven</h3>
-          <p>Modern city apartment with stunning views, sleek design, and premium amenities throughout.</p>
-          <div class="property-meta">
-            <span>🛏 2 beds</span>
-            <span>🚿 2 baths</span>
-            <span>📐 1,200 sq.ft</span>
-          </div>
-        </div>
-      </div>
+      </a>
+
     </div>
   </div>
 </div>
@@ -987,26 +1142,26 @@ footer {
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="Naah_White.png" alt="Naah Collective">
+        <img src="./Naah Collective — Merida Real Estate_files/Naah_White.png" alt="Naah Collective">
         <p>A curated collective of local experts helping you buy and invest in Mérida with clarity and confidence.</p>
         <a href="https://wa.me/529993355302" class="btn-primary" style="font-size:0.82rem; padding:0.6rem 1.4rem;" target="_blank">Contact us</a>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#about">About us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="zones.html">Zones</a></li>
-          <li><a href="#properties">Properties</a></li>
+          <li><a href="file:///Users/joshnorthcott/Downloads/index_2.html#">Home</a></li>
+          <li><a href="file:///Users/joshnorthcott/Downloads/index_2.html#about">About us</a></li>
+          <li><a href="file:///Users/joshnorthcott/Downloads/index_2.html#services">Services</a></li>
+          <li><a href="file:///Users/joshnorthcott/Downloads/zones.html">Zones</a></li>
+          <li><a href="file:///Users/joshnorthcott/Downloads/index_2.html#properties">Properties</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Areas</h4>
         <ul>
-          <li><a href="zones.html#centro">Centro Histórico</a></li>
-          <li><a href="zones.html#cholul">Cholul</a></li>
-          <li><a href="zones.html#conkal">Conkal</a></li>
+          <li><a href="file:///Users/joshnorthcott/Downloads/zones.html#centro">Centro Histórico</a></li>
+          <li><a href="file:///Users/joshnorthcott/Downloads/zones.html#cholul">Cholul</a></li>
+          <li><a href="file:///Users/joshnorthcott/Downloads/zones.html#conkal">Conkal</a></li>
         </ul>
       </div>
       <div class="footer-col footer-contact">
@@ -1045,5 +1200,6 @@ window.addEventListener('scroll', () => {
   if (bg) bg.style.transform = `scale(1.04) translateY(${window.scrollY * 0.15}px)`;
 });
 </script>
-</body>
-</html>
+
+
+</body></html>
