@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Mérida Tour — Ben & Esmirna | Naah Collective</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/fontalternative/glacial-indifference/font.css" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --gold: #E1C790; --gold-dark: #C4A665; --black: #0A0A0A;
+  --white: #FAFAF8; --gray-100: #F4F4F2; --gray-200: #E8E8E4;
+  --gray-400: #9A9A94; --gray-600: #5A5A54; --cream: #FBF7F1;
+  --light-clay: #EDD9C0; --radius: 12px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Glacial Indifference','Trebuchet MS',sans-serif; background: var(--cream); color: var(--black); overflow-x: hidden; }
+h1,h2,h3,h4 { font-family: 'Finger Paint',cursive; font-weight: 400; }
+
+/* NAV */
+nav { position: fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:space-between; padding:1rem 3rem; background:rgba(10,10,10,0.92); backdrop-filter:blur(14px); border-bottom:1px solid rgba(225,199,144,0.12); }
+.nav-logo img { height:90px; width:auto; display:block; margin:-12px 0; }
+.nav-centre { display:flex; flex-direction:column; align-items:center; gap:0.2rem; }
+.nav-client { font-family:'Finger Paint',cursive; font-size:0.95rem; color:var(--white); }
+.nav-tag { font-family:'Glacial Indifference',sans-serif; font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); }
+.nav-back { font-family:'Glacial Indifference',sans-serif; font-size:0.78rem; color:rgba(250,250,248,0.45); text-decoration:none; transition:color 0.2s; }
+.nav-back:hover { color:var(--gold); }
+
+/* HERO */
+.page-hero { background:var(--black); padding:10rem 3rem 5rem; text-align:center; border-bottom:1px solid rgba(225,199,144,0.12); position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center bottom,rgba(225,199,144,0.06) 0%,transparent 70%); }
+.hero-tag { display:inline-block; font-family:'Glacial Indifference',sans-serif; font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(225,199,144,0.3); padding:0.35rem 1rem; border-radius:100px; margin-bottom:1.5rem; }
+.page-hero h1 { font-size:clamp(2.5rem,5vw,4rem); color:var(--white); margin-bottom:0.75rem; line-height:1.15; position:relative; }
+.page-hero p { font-family:'Glacial Indifference',sans-serif; color:rgba(250,250,248,0.55); font-size:0.97rem; max-width:500px; margin:0 auto; line-height:1.75; }
+
+/* TABS */
+.section-tabs { background:var(--black); display:flex; justify-content:center; border-top:1px solid rgba(225,199,144,0.08); position:sticky; top:70px; z-index:100; }
+.tab { font-family:'Glacial Indifference',sans-serif; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(250,250,248,0.45); text-decoration:none; padding:1rem 2rem; border-bottom:2px solid transparent; transition:all 0.2s; white-space:nowrap; }
+.tab:hover,.tab.active { color:var(--gold); border-bottom-color:var(--gold); }
+
+/* SHARED */
+.section-wrap { padding:5rem 3rem; }
+.section-inner { max-width:960px; margin:0 auto; }
+.section-label { font-family:'Glacial Indifference',sans-serif; font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dark); display:block; margin-bottom:0.6rem; }
+.section-title { font-size:clamp(1.8rem,3.5vw,2.8rem); line-height:1.2; margin-bottom:0.75rem; }
+.section-desc { font-family:'Glacial Indifference',sans-serif; font-size:0.95rem; color:var(--gray-600); line-height:1.8; max-width:640px; margin-bottom:3rem; }
+.gold-rule { width:48px; height:2px; background:var(--gold); margin-bottom:2.5rem; }
+
+/* SECTION 1: CRITERIA */
+.criteria-wrap { background:var(--cream); }
+.criteria-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--light-clay); border:1px solid var(--light-clay); border-radius:var(--radius); overflow:hidden; margin-bottom:2.5rem; }
+.criteria-card { background:var(--white); padding:1.75rem 1.5rem; }
+.criteria-icon { font-size:1.5rem; margin-bottom:0.75rem; display:block; }
+.criteria-card h4 { font-family:'Glacial Indifference',sans-serif; font-weight:700; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:0.4rem; }
+.criteria-value { font-family:'Finger Paint',cursive; font-size:1.2rem; color:var(--black); line-height:1.2; margin-bottom:0.3rem; }
+.criteria-note { font-family:'Glacial Indifference',sans-serif; font-size:0.78rem; color:var(--gray-400); line-height:1.5; }
+.priorities-title { font-family:'Glacial Indifference',sans-serif; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:1rem; }
+.priorities-list { list-style:none; }
+.priorities-list li { font-family:'Glacial Indifference',sans-serif; font-size:0.92rem; color:var(--gray-600); padding:0.85rem 0 0.85rem 1.25rem; border-bottom:1px solid var(--light-clay); position:relative; line-height:1.65; }
+.priorities-list li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+.priorities-list li strong { color:var(--black); font-weight:700; }
+
+/* SECTION 2: ROUTE */
+.route-wrap { background:var(--black); }
+.route-wrap .section-title { color:var(--white); }
+.route-wrap .section-desc { color:rgba(250,250,248,0.55); }
+.route-stats { display:flex; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+.route-stat-value { font-family:'Finger Paint',cursive; font-size:1.8rem; color:var(--gold); line-height:1; }
+.route-stat-label { font-family:'Glacial Indifference',sans-serif; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(250,250,248,0.4); margin-top:0.2rem; }
+.school-note { display:flex; gap:0.75rem; align-items:flex-start; background:rgba(225,199,144,0.08); border:1px solid rgba(225,199,144,0.2); border-radius:var(--radius); padding:1.25rem 1.5rem; margin-bottom:2rem; }
+.school-note-icon { font-size:1.25rem; flex-shrink:0; }
+.school-note p { font-family:'Glacial Indifference',sans-serif; font-size:0.85rem; color:rgba(250,250,248,0.65); line-height:1.7; }
+.school-note p strong { color:var(--gold); font-weight:700; }
+.map-container { border-radius:var(--radius); overflow:hidden; border:1px solid rgba(225,199,144,0.15); margin-bottom:2rem; height:420px; }
+.map-container iframe { width:100%; height:100%; border:none; display:block; }
+.stops-list { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.stop-card { background:rgba(255,255,255,0.04); border:1px solid rgba(225,199,144,0.12); border-radius:var(--radius); padding:1.25rem; transition:border-color 0.2s; }
+.stop-card:hover { border-color:rgba(225,199,144,0.35); }
+.stop-num { font-family:'Finger Paint',cursive; font-size:1.8rem; color:rgba(225,199,144,0.2); line-height:1; margin-bottom:0.5rem; }
+.stop-time { font-family:'Glacial Indifference',sans-serif; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.35rem; }
+.stop-card h4 { font-size:0.9rem; color:var(--white); margin-bottom:0.35rem; }
+.stop-card p { font-family:'Glacial Indifference',sans-serif; font-size:0.78rem; color:rgba(250,250,248,0.45); line-height:1.6; }
+.stop-duration { display:inline-block; margin-top:0.65rem; font-family:'Glacial Indifference',sans-serif; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(225,199,144,0.5); border:1px solid rgba(225,199,144,0.2); padding:0.2rem 0.6rem; border-radius:100px; }
+
+/* SECTION 3: PROPERTIES */
+.properties-wrap { background:var(--gray-100); }
+.zone-group { margin-bottom:4rem; }
+.zone-group:last-child { margin-bottom:0; }
+.zone-header { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--light-clay); flex-wrap:wrap; }
+.zone-badge { font-family:'Glacial Indifference',sans-serif; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; background:var(--black); color:var(--gold); padding:0.35rem 0.85rem; border-radius:100px; white-space:nowrap; }
+.zone-header h3 { font-size:1.4rem; }
+.zone-count { font-family:'Glacial Indifference',sans-serif; font-size:0.78rem; color:var(--gray-400); margin-left:auto; }
+.properties-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
+.properties-grid.single { grid-template-columns:1fr; max-width:480px; }
+.property-card { background:white; border-radius:var(--radius); overflow:hidden; border:1px solid var(--gray-200); transition:transform 0.3s,box-shadow 0.3s; }
+.property-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,0.08); }
+.property-img { position:relative; aspect-ratio:16/10; background:var(--gray-100); overflow:hidden; }
+.property-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+.property-card:hover .property-img img { transform:scale(1.04); }
+.property-img-placeholder { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; color:var(--gray-400); font-family:'Glacial Indifference',sans-serif; font-size:0.75rem; letter-spacing:0.08em; }
+.prop-badges { position:absolute; top:1rem; left:1rem; display:flex; gap:0.4rem; flex-wrap:wrap; }
+.badge { font-family:'Glacial Indifference',sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.28rem 0.7rem; border-radius:100px; }
+.badge-new-build { background:var(--gold); color:var(--black); }
+.badge-recommended { background:var(--black); color:var(--gold); border:1px solid var(--gold); }
+.badge-land { background:white; color:var(--black); border:1px solid var(--gray-200); }
+.badge-immediate { background:#2D6A4F; color:white; }
+.prop-price { position:absolute; bottom:1rem; right:1rem; background:rgba(0,0,0,0.78); backdrop-filter:blur(4px); color:var(--white); font-family:'Finger Paint',cursive; font-size:0.95rem; padding:0.35rem 0.8rem; border-radius:8px; }
+.property-body { padding:1.5rem; }
+.prop-model { font-family:'Glacial Indifference',sans-serif; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:0.3rem; }
+.property-body h3 { font-size:1.15rem; color:var(--black); margin-bottom:0.3rem; line-height:1.25; }
+.prop-location { font-family:'Glacial Indifference',sans-serif; font-size:0.8rem; color:var(--gray-400); margin-bottom:1.25rem; }
+.prop-specs { display:grid; grid-template-columns:repeat(2,1fr); gap:0.6rem; margin-bottom:1.25rem; }
+.spec-item { background:var(--gray-100); border-radius:8px; padding:0.6rem 0.85rem; }
+.spec-label { font-family:'Glacial Indifference',sans-serif; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:0.2rem; }
+.spec-value { font-family:'Glacial Indifference',sans-serif; font-size:0.85rem; font-weight:700; color:var(--black); }
+.prop-delivery { display:flex; align-items:center; gap:0.5rem; font-family:'Glacial Indifference',sans-serif; font-size:0.8rem; color:var(--gray-600); padding:0.75rem 0; border-top:1px solid var(--gray-200); border-bottom:1px solid var(--gray-200); margin-bottom:1rem; }
+.delivery-dot { width:8px; height:8px; border-radius:50%; background:var(--gold); flex-shrink:0; animation:pulse 2s infinite; }
+.prop-notes { background:rgba(225,199,144,0.08); border-left:3px solid var(--gold); padding:0.85rem 1rem; border-radius:0 6px 6px 0; }
+.prop-notes-label { font-family:'Glacial Indifference',sans-serif; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-dark); font-weight:700; margin-bottom:0.3rem; }
+.prop-notes p { font-family:'Glacial Indifference',sans-serif; font-size:0.82rem; color:var(--gray-600); line-height:1.65; }
+.prop-warning { background:rgba(184,92,56,0.08); border-left:3px solid #B85C38; padding:0.75rem 1rem; border-radius:0 6px 6px 0; margin-top:0.75rem; }
+.prop-warning-label { font-family:'Glacial Indifference',sans-serif; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:#B85C38; font-weight:700; margin-bottom:0.3rem; }
+.prop-warning p { font-family:'Glacial Indifference',sans-serif; font-size:0.82rem; color:var(--gray-600); line-height:1.65; }
+
+/* CTA */
+.cta-wrap { background:var(--black); padding:5rem 3rem; text-align:center; border-top:1px solid rgba(225,199,144,0.1); }
+.cta-wrap h2 { font-size:clamp(1.8rem,3vw,2.5rem); color:var(--white); margin-bottom:0.75rem; }
+.cta-wrap p { font-family:'Glacial Indifference',sans-serif; color:rgba(250,250,248,0.5); font-size:0.92rem; margin-bottom:2rem; line-height:1.7; }
+.btn-primary { background:var(--gold); color:var(--black); padding:0.85rem 2rem; border-radius:100px; text-decoration:none; font-family:'Glacial Indifference',sans-serif; font-weight:700; font-size:0.9rem; display:inline-block; margin:0.3rem; transition:background 0.2s,transform 0.2s; }
+.btn-primary:hover { background:var(--gold-dark); transform:translateY(-2px); }
+.btn-outline { background:transparent; color:var(--white); padding:0.85rem 2rem; border-radius:100px; text-decoration:none; font-family:'Glacial Indifference',sans-serif; font-size:0.9rem; border:1px solid rgba(255,255,255,0.2); display:inline-block; margin:0.3rem; transition:background 0.2s,transform 0.2s; }
+.btn-outline:hover { background:rgba(255,255,255,0.08); transform:translateY(-2px); }
+
+/* FOOTER */
+footer { background:var(--black); padding:2rem 3rem; border-top:1px solid rgba(225,199,144,0.06); }
+.footer-inner { max-width:960px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+.footer-inner img { height:52px; width:auto; opacity:0.5; }
+.footer-note { font-family:'Glacial Indifference',sans-serif; font-size:0.75rem; color:rgba(250,250,248,0.25); line-height:1.6; }
+
+/* ANIMATIONS */
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:900px){ .stops-list{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:768px){
+  nav{padding:1rem 1.25rem;} .nav-centre{display:none;}
+  .section-wrap{padding:4rem 1.25rem;}
+  .criteria-grid{grid-template-columns:repeat(2,1fr);}
+  .stops-list{grid-template-columns:1fr;}
+  .properties-grid{grid-template-columns:1fr;}
+  .properties-grid.single{max-width:100%;}
+  .section-tabs{overflow-x:auto;justify-content:flex-start;}
+  .tab{padding:1rem 1.25rem;font-size:0.7rem;}
+  .map-container{height:280px;}
+  .cta-wrap,footer{padding:4rem 1.25rem;}
+  .page-hero{padding:8rem 1.25rem 3.5rem;}
+}
+@media(max-width:480px){ .criteria-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="Naah_White.png" alt="Naah Collective"></a>
+  <div class="nav-centre">
+    <span class="nav-client">Ben & Esmirna</span>
+    <span class="nav-tag">Private Property Tour · Friday May 8th</span>
+  </div>
+  <a href="index.html" class="nav-back">← Back to site</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <span class="hero-tag">Prepared exclusively for you · Naah Collective</span>
+  <h1>Your Mérida<br>Property Tour</h1>
+  <p>Ben & Esmirna — here's everything you need ahead of Friday May 8th. Your criteria, your route, and the 10 properties we've selected for you.</p>
+</div>
+
+<!-- TABS -->
+<div class="section-tabs">
+  <a href="#criteria" class="tab active">01 · Your Criteria</a>
+  <a href="#route" class="tab">02 · Tour Route</a>
+  <a href="#properties" class="tab">03 · Properties</a>
+</div>
+
+<!-- ═══════════════════════════
+     SECTION 1: CRITERIA
+═══════════════════════════ -->
+<div class="section-wrap criteria-wrap" id="criteria">
+  <div class="section-inner">
+    <span class="section-label">Section 01</span>
+    <h2 class="section-title">Your criteria</h2>
+    <div class="gold-rule"></div>
+    <p class="section-desc">Based on our conversations, here's a summary of what you're looking for — this guided every decision in putting this tour together.</p>
+
+    <div class="criteria-grid reveal">
+      <div class="criteria-card">
+        <span class="criteria-icon">💰</span>
+        <h4>Budget</h4>
+        <div class="criteria-value">$2M – $3.5M MXN</div>
+        <p class="criteria-note">$2–3M doing additional projects · $3–3.5M move-in ready</p>
+      </div>
+      <div class="criteria-card">
+        <span class="criteria-icon">🛏</span>
+        <h4>Bedrooms</h4>
+        <div class="criteria-value">3 preferred</div>
+        <p class="criteria-note">2 beds ok if there's room to add a 3rd down the line</p>
+      </div>
+      <div class="criteria-card">
+        <span class="criteria-icon">📅</span>
+        <h4>Move-in Date</h4>
+        <div class="criteria-value">~Oct 2026</div>
+        <p class="criteria-note">Delivery close to October 2026 preferred</p>
+      </div>
+      <div class="criteria-card">
+        <span class="criteria-icon">🏘️</span>
+        <h4>Community Type</h4>
+        <div class="criteria-value">Flexible</div>
+        <p class="criteria-note">Privada ok with shared outdoor space · Bigger lot if not in privada</p>
+      </div>
+      <div class="criteria-card">
+        <span class="criteria-icon">👧</span>
+        <h4>Sofia's School</h4>
+        <div class="criteria-value">Alianz School</div>
+        <p class="criteria-note">Drive time to Alianz Comunidad Estudiantil is a key factor</p>
+      </div>
+      <div class="criteria-card">
+        <span class="criteria-icon">✨</span>
+        <h4>Nice to Have</h4>
+        <div class="criteria-value">Pool · Solar · Softener</div>
+        <p class="criteria-note">Attractive but not required — would be a bonus</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p class="priorities-title">Key priorities noted from our conversation</p>
+      <ul class="priorities-list">
+        <li><strong>Move-in timeline</strong> — October 2026 is the target, so delivery date is a real filter on this tour</li>
+        <li><strong>Space for Sofia</strong> — if in a privada, shared green space or park matters · if not, a bigger private lot is needed</li>
+        <li><strong>Expandability</strong> — 2-bedroom options are only relevant if the layout allows for a future 3rd bedroom</li>
+        <li><strong>Drive to Alianz School</strong> — we've mapped all 4 developments relative to the school so you can compare commutes on the day</li>
+        <li><strong>Move-in ready vs. projects</strong> — budget range reflects your flexibility: lower end assumes some work, upper end expects finished quality</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+     SECTION 2: ROUTE
+═══════════════════════════ -->
+<div class="section-wrap route-wrap" id="route">
+  <div class="section-inner">
+    <span class="section-label" style="color:var(--gold);">Section 02</span>
+    <h2 class="section-title">Your tour route</h2>
+    <div class="gold-rule"></div>
+    <p class="section-desc">We meet at Botánico Residencial at 9am, then work our way through 4 developments — all in the northern corridor. Here's the plan for the morning.</p>
+
+    <div class="route-stats reveal">
+      <div class="route-stat">
+        <div class="route-stat-value">4</div>
+        <div class="route-stat-label">Developments</div>
+      </div>
+      <div class="route-stat">
+        <div class="route-stat-value">10</div>
+        <div class="route-stat-label">Properties</div>
+      </div>
+      <div class="route-stat">
+        <div class="route-stat-value">~3 hrs</div>
+        <div class="route-stat-label">Est. duration</div>
+      </div>
+      <div class="route-stat">
+        <div class="route-stat-value">9:00 AM</div>
+        <div class="route-stat-label">Meet time</div>
+      </div>
+    </div>
+
+    <div class="school-note reveal">
+      <span class="school-note-icon">🏫</span>
+      <p><strong>Sofia's school is factored in.</strong> Alianz Comunidad Estudiantil is located on Carretera a Progreso, northwest of the city. As we tour each development, we'll give you a realistic sense of the daily school run from each location — this is a key part of the decision.</p>
+    </div>
+
+    <div class="map-container reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d60078.5!2d-89.534!3d21.065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e0!4m5!1s0x8f567703007af4e1%3A0x3830c85fc05ced08!2sBot%C3%A1nico+Residencial%2C+Conkal!3m2!1d21.0662031!2d-89.5514706!4m5!1s0x8f5679a4a235393d%3A0x52dc2a31b04515e8!2sCumbres+Novonorte%2C+Conkal!3m2!1d21.040077!2d-89.50845079999999!4m5!1s0x8f5679e594dd9e76%3A0x11b03c887a61141d!2sAldoria+Residencial%2C+Conkal!3m2!1d21.0688925!2d-89.54253279999999!4m5!1s0x8f5679090daee99b%3A0xf3defa157ba029f1!2sSilvesta+Privada%2C+Conkal!3m2!1d21.0819042!2d-89.54099049999999!4m5!1s0x8f567900754ba3a9%3A0x464ee23f559b58bd!2sGran+Bosco%2C+Conkal!3m2!1d21.0879375!2d-89.5348125!5e0!3m2!1sen!2smx!4v1"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div class="stops-list reveal">
+      <div class="stop-card">
+        <div class="stop-num">00</div>
+        <p class="stop-time">9:00 AM · Meet point</p>
+        <h4>Botánico Residencial</h4>
+        <p>We start here. Quick overview of the day, then head to our first development.</p>
+        <span class="stop-duration">~15 min</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">01</div>
+        <p class="stop-time">9:15 AM</p>
+        <h4>Cumbres Novanorte</h4>
+        <p>3 models to view — B, D, and E. Strong value for the area. Allow time for questions with the sales team.</p>
+        <span class="stop-duration">~45 min</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">02</div>
+        <p class="stop-time">10:15 AM</p>
+        <h4>Aldoria</h4>
+        <p>1 property — the Anara model. Well-established community, immediate delivery, room to expand.</p>
+        <span class="stop-duration">~30 min</span>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">03</div>
+        <p class="stop-time">11:00 AM</p>
+        <h4>Silvesta</h4>
+        <p>Land plots — build to your own spec. Great if you want full control over the finish. Immediate availability.</p>
+        <span class="stop-duration">~30 min</span>
+      </div>
+      <div class="stop-card" style="grid-column:span 1;">
+        <div class="stop-num">04</div>
+        <p class="stop-time">11:45 AM</p>
+        <h4>Gran Bosco</h4>
+        <p>5 options ranging from 2 to 4 bedrooms. Best value on the tour — closer to the coast.</p>
+        <span class="stop-duration">~60 min</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+     SECTION 3: PROPERTIES
+═══════════════════════════ -->
+<div class="section-wrap properties-wrap" id="properties">
+  <div class="section-inner">
+    <span class="section-label">Section 03</span>
+    <h2 class="section-title">Selected properties</h2>
+    <div class="gold-rule"></div>
+    <p class="section-desc">10 properties across 4 developments. All new builds, all matched to your criteria as closely as possible.</p>
+
+    <!-- ── CUMBRES NOVANORTE ── -->
+    <div class="zone-group reveal">
+      <div class="zone-header">
+        <span class="zone-badge">Stop 01</span>
+        <h3>Cumbres Novanorte</h3>
+        <span class="zone-count">3 properties</span>
+      </div>
+      <div class="properties-grid">
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add property photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-new-build">New Build</span></div>
+            <div class="prop-price">$3,030,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Cumbres Novanorte · Model B</p>
+            <h3>Model B</h3>
+            <p class="prop-location">📍 Cumbres Novanorte, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">3 beds</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">2.5 baths</p></div>
+              <div class="spec-item"><p class="spec-label">Built area</p><p class="spec-value">131 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Plot size</p><p class="spec-value">225 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Parking</p><p class="spec-value">2 spaces</p></div>
+              <div class="spec-item"><p class="spec-label">Delivery</p><p class="spec-value">Variable</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot"></span>Delivery date: Variable — confirm with sales team</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>Great price for the area. Entry-level model in the development — good option if you're planning additional projects. No pool included.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add property photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-new-build">New Build</span></div>
+            <div class="prop-price">$3,185,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Cumbres Novanorte · Model D</p>
+            <h3>Model D</h3>
+            <p class="prop-location">📍 Cumbres Novanorte, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">3 beds</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">2.5 baths</p></div>
+              <div class="spec-item"><p class="spec-label">Built area</p><p class="spec-value">152 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Plot size</p><p class="spec-value">225 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Parking</p><p class="spec-value">2 spaces</p></div>
+              <div class="spec-item"><p class="spec-label">Delivery</p><p class="spec-value">Variable</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot"></span>Delivery date: Variable — confirm with sales team</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>Mid-range model with noticeably more built space than Model B. Good balance of price and size. No pool included.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add property photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-new-build">New Build</span><span class="badge badge-recommended">Largest Model</span></div>
+            <div class="prop-price">$3,385,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Cumbres Novanorte · Model E</p>
+            <h3>Model E</h3>
+            <p class="prop-location">📍 Cumbres Novanorte, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">3 beds</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">2.5 baths</p></div>
+              <div class="spec-item"><p class="spec-label">Built area</p><p class="spec-value">167 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Plot size</p><p class="spec-value">225 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Parking</p><p class="spec-value">2 spaces</p></div>
+              <div class="spec-item"><p class="spec-label">Delivery</p><p class="spec-value">Variable</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot"></span>Delivery date: Variable — confirm with sales team</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>Top of the range at Cumbres. Most built area of the three models — sits at the upper end of your budget but great value for the space. No pool included.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── ALDORIA ── -->
+    <div class="zone-group reveal">
+      <div class="zone-header">
+        <span class="zone-badge">Stop 02</span>
+        <h3>Aldoria Residencial</h3>
+        <span class="zone-count">1 property</span>
+      </div>
+      <div class="properties-grid single">
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add property photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-new-build">New Build</span><span class="badge badge-immediate">Immediate Delivery</span></div>
+            <div class="prop-price">$3,134,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Aldoria Residencial · Anara</p>
+            <h3>Anara</h3>
+            <p class="prop-location">📍 Aldoria Residencial, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">2 beds</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">2.5 baths</p></div>
+              <div class="spec-item"><p class="spec-label">Built area</p><p class="spec-value">119 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Plot size</p><p class="spec-value">246 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Parking</p><p class="spec-value">2 spaces</p></div>
+              <div class="spec-item"><p class="spec-label">Delivery</p><p class="spec-value">Immediate</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot" style="background:#2D6A4F;"></span>Immediate delivery — move in ready</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>Well-established community with a larger plot than most on this tour. 2 bedrooms but with room to build a 3rd down the line. No pool. Immediate delivery fits your Oct 2026 timeline perfectly.</p>
+            </div>
+            <div class="prop-warning">
+              <p class="prop-warning-label">⚠️ Worth knowing before you visit</p>
+              <p>Multiple residents have noted an occasional smell from a nearby pig farm. It doesn't happen every day but it is worth being aware of — we'd suggest visiting at different times to get a fair impression.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── SILVESTA ── -->
+    <div class="zone-group reveal">
+      <div class="zone-header">
+        <span class="zone-badge">Stop 03</span>
+        <h3>Silvesta Privada Residencial</h3>
+        <span class="zone-count">Land plots · Build to spec</span>
+      </div>
+      <div class="properties-grid single">
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add development photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-land">Land Plot</span><span class="badge badge-immediate">Immediate</span></div>
+            <div class="prop-price">From $1,062,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Silvesta · Available plots</p>
+            <h3>Build to Your Specifications</h3>
+            <p class="prop-location">📍 Silvesta Privada Residencial, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">Your choice</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">Your choice</p></div>
+              <div class="spec-item"><p class="spec-label">Plot sizes</p><p class="spec-value">300 – 373 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Price range</p><p class="spec-value">$1.06M – $1.40M MXN</p></div>
+              <div class="spec-item"><p class="spec-label">Min. deposit</p><p class="spec-value">25% to start build</p></div>
+              <div class="spec-item"><p class="spec-label">Availability</p><p class="spec-value">Immediate</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot" style="background:#2D6A4F;"></span>Plots available immediately · Build timeline dependent on your plan</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>The only option on this tour where you design everything from scratch — bedrooms, layout, pool, solar, everything. Larger plots than most developments. Pay upfront and get a $25,000 MXN discount. Start building with just 25% down. Worth considering if you have a clear vision of what you want.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── GRAN BOSCO ── -->
+    <div class="zone-group reveal">
+      <div class="zone-header">
+        <span class="zone-badge">Stop 04</span>
+        <h3>Gran Bosco</h3>
+        <span class="zone-count">5 properties</span>
+      </div>
+      <div class="properties-grid">
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add property photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-new-build">New Build</span></div>
+            <div class="prop-price">$2,620,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Gran Bosco · A9-126</p>
+            <h3>Model A9-126</h3>
+            <p class="prop-location">📍 Gran Bosco, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">2 beds</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">2.5 baths</p></div>
+              <div class="spec-item"><p class="spec-label">Built area</p><p class="spec-value">126 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Plot size</p><p class="spec-value">225 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Parking</p><p class="spec-value">2 spaces</p></div>
+              <div class="spec-item"><p class="spec-label">Delivery</p><p class="spec-value">May 2026</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot"></span>Delivery: May 2026 — fits your Oct 2026 timeline</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>Extremely good value for the area — lowest price on the tour. A little further from the city but closer to the coast. May 2026 delivery gives you time before your target move-in.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add property photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-new-build">New Build</span></div>
+            <div class="prop-price">From $2,685,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Gran Bosco · A9-139</p>
+            <h3>Model A9-139</h3>
+            <p class="prop-location">📍 Gran Bosco, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">2 beds</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">2.5 baths</p></div>
+              <div class="spec-item"><p class="spec-label">Built area</p><p class="spec-value">139 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Plot size</p><p class="spec-value">225 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Parking</p><p class="spec-value">2 spaces</p></div>
+              <div class="spec-item"><p class="spec-label">Delivery</p><p class="spec-value">May 2026</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot"></span>Delivery: May 2026 · Price from $2,685,000 to $3,055,000 MXN</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>More built space than A9-126 with a price range depending on unit selection. Extremely good value — closer to the coast. May 2026 delivery.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add property photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-new-build">New Build</span></div>
+            <div class="prop-price">$2,820,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Gran Bosco · B9-147</p>
+            <h3>Model B9-147</h3>
+            <p class="prop-location">📍 Gran Bosco, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">2 beds</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">2 baths</p></div>
+              <div class="spec-item"><p class="spec-label">Built area</p><p class="spec-value">147 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Plot size</p><p class="spec-value">225 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Parking</p><p class="spec-value">2 spaces</p></div>
+              <div class="spec-item"><p class="spec-label">Delivery</p><p class="spec-value">June 2026</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot"></span>Delivery: June 2026 — ahead of your October target</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>Good built area at a competitive price. June delivery gives comfortable buffer before October. Closer to the coast. Extremely good value for the size.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add property photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-new-build">New Build</span><span class="badge badge-recommended">Largest Option</span></div>
+            <div class="prop-price">$3,670,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Gran Bosco · B9-191</p>
+            <h3>Model B9-191</h3>
+            <p class="prop-location">📍 Gran Bosco, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">4 beds</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">4 baths</p></div>
+              <div class="spec-item"><p class="spec-label">Built area</p><p class="spec-value">191 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Plot size</p><p class="spec-value">225 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Parking</p><p class="spec-value">2 spaces</p></div>
+              <div class="spec-item"><p class="spec-label">Delivery</p><p class="spec-value">June 2026</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot"></span>Delivery: June 2026 — above your budget but worth seeing</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>The most space on the entire tour — 4 beds, 4 baths, 191m². Above your stated budget but exceptional value for this size and spec. Worth a look to set a reference point.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-img">
+            <div class="property-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="2" y="8" width="28" height="20" rx="2" stroke="#9A9A94" stroke-width="1.5"/><path d="M2 14l14-8 14 8" stroke="#9A9A94" stroke-width="1.5"/><rect x="12" y="20" width="8" height="8" stroke="#9A9A94" stroke-width="1.5"/></svg>
+              Add property photo
+            </div>
+            <div class="prop-badges"><span class="badge badge-new-build">New Build</span><span class="badge badge-recommended">⭐ Personal Ref.</span></div>
+            <div class="prop-price">$3,560,000 MXN</div>
+          </div>
+          <div class="property-body">
+            <p class="prop-model">Gran Bosco · C9-166</p>
+            <h3>Model C9-166</h3>
+            <p class="prop-location">📍 Gran Bosco, Conkal</p>
+            <div class="prop-specs">
+              <div class="spec-item"><p class="spec-label">Bedrooms</p><p class="spec-value">3 beds</p></div>
+              <div class="spec-item"><p class="spec-label">Bathrooms</p><p class="spec-value">3.5 baths</p></div>
+              <div class="spec-item"><p class="spec-label">Built area</p><p class="spec-value">166 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Plot size</p><p class="spec-value">225 m²</p></div>
+              <div class="spec-item"><p class="spec-label">Parking</p><p class="spec-value">2 spaces</p></div>
+              <div class="spec-item"><p class="spec-label">Delivery</p><p class="spec-value">July 2026</p></div>
+            </div>
+            <div class="prop-delivery"><span class="delivery-dot"></span>Delivery: July 2026 — 3 months before your target</div>
+            <div class="prop-notes">
+              <p class="prop-notes-label">Naah's notes</p>
+              <p>Same model as our own house — just without the rear terrace. We can give you a genuine first-hand view of what living in this model is actually like. Extremely good value. Closer to the coast.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-wrap">
+  <h2>See you on Friday!</h2>
+  <p>Any questions before May 8th — just message us on WhatsApp.<br>We'll confirm the exact meet point at Botánico the day before.</p>
+  <a href="https://wa.me/529993355302" class="btn-primary" target="_blank">WhatsApp us</a>
+  <a href="https://instagram.com/naah.collective" class="btn-outline" target="_blank">Message on Instagram</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img src="Naah_White.png" alt="Naah Collective">
+    <p class="footer-note">Prepared exclusively for Ben & Esmirna by Naah Collective.<br>Please do not share this link.</p>
+    <p class="footer-note">© 2025 Naah Collective</p>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const sections = ['criteria','route','properties'];
+const tabs = document.querySelectorAll('.tab');
+window.addEventListener('scroll',()=>{
+  let current = '';
+  sections.forEach(id=>{
+    const el = document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - 160) current = id;
+  });
+  tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href')==='#'+current));
+});
+</script>
+</body>
+</html>
