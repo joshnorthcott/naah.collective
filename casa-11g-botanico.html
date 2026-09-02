@@ -85,7 +85,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text); outline
 
 /* ---------- hero ---------- */
 .hero-wrap{max-width:var(--shell); margin:0 auto; padding:26px 28px 0}
-.hero{width:100%; aspect-ratio:3/2; object-fit:cover; background:var(--paper-2)}
+.hero-grid{
+  display:grid; grid-template-columns:2.15fr 1fr; grid-template-rows:1fr 1fr;
+  gap:12px; aspect-ratio:2/1;
+}
+.hero-grid img{width:100%; height:100%; object-fit:cover; background:var(--paper-2)}
+.hero-main{grid-row:1 / span 2}
+.hero-map{overflow:hidden; background:var(--paper-2)}
+.hero-map svg{display:block; width:100%; height:100%; font-family:"DM Sans",Helvetica,Arial,sans-serif}
+.m-ring{fill:none; stroke:var(--line); stroke-width:2}
+.m-road{fill:none; stroke:var(--line); stroke-width:2}
+.m-dot{fill:var(--ink-3)}
+.m-label{fill:var(--ink-3); font-size:16px; letter-spacing:.13em}
+.m-pin{fill:var(--gold-text)}
+.m-pin-label{fill:var(--ink); font-size:19px; font-weight:500; letter-spacing:.09em}
+.m-note{fill:var(--ink-3); font-size:13px; letter-spacing:.1em}
 
 /* ---------- title ---------- */
 .title{
@@ -181,6 +195,10 @@ footer a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(-
 @media (max-width:560px){
   body{font-size:16px}
   .shell,.bar-in,.cta-inner,.hero-wrap{padding-left:20px; padding-right:20px}
+  .hero-grid{grid-template-columns:1fr; grid-template-rows:auto auto auto; aspect-ratio:auto}
+  .hero-main{grid-row:auto; aspect-ratio:3/2}
+  .hero-side{aspect-ratio:3/2}
+  .hero-map{aspect-ratio:3/2}
   .gal{grid-template-columns:1fr}
   .gal .wide{aspect-ratio:3/2}
   .cols{columns:1}
@@ -205,7 +223,50 @@ footer a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(-
 </div>
 
 <div class="hero-wrap">
-  <img class="hero" src="casa-11g-botanico-01-hero.jpg" alt="Front elevation of Casa 11G — stone and white render, covered carport, cactus planting" width="1146" height="849">
+  <div class="hero-grid">
+    <img class="hero-main" src="casa-11g-botanico-01-hero.jpg" alt="Front elevation of Casa 11G — stone and white render, covered carport, cactus planting" width="1146" height="849">
+    <img class="hero-side" src="casa-11g-botanico-25-hero-pool.jpg" alt="The pool and planted garden behind the house" loading="lazy" decoding="async">
+    <div class="hero-map">
+      <svg viewBox="0 0 540 420" role="img" aria-label="Locator map: Residencial Botánico, Conkal, north-east of Mérida" preserveAspectRatio="xMidYMid meet">
+        <!-- Periférico ring -->
+        <ellipse class="m-ring" cx="210" cy="240" rx="130" ry="120"></ellipse>
+        <!-- roads out -->
+        <path class="m-road" d="M330 194 C 360 174, 384 148, 414 126"></path>
+        <path class="m-road" d="M214 120 L 214 62"></path>
+        <path class="m-road" d="M128 358 L 158 326"></path>
+        <!-- north arrow -->
+        <g transform="translate(40,54)">
+          <path class="m-road" d="M0 20 L0 -12"></path>
+          <path class="m-dot" d="M0 -20 L6 -6 L-6 -6 Z"></path>
+          <text class="m-label" x="0" y="38" text-anchor="middle">N</text>
+        </g>
+        <!-- centre -->
+        <circle class="m-dot" cx="200" cy="276" r="4"></circle>
+        <text class="m-label" x="200" y="299" text-anchor="middle">CENTRO HISTÓRICO</text>
+        <!-- altabrisa -->
+        <circle class="m-dot" cx="285" cy="178" r="4"></circle>
+        <text class="m-label" x="285" y="201" text-anchor="middle">ALTABRISA</text>
+        <!-- uady -->
+        <circle class="m-dot" cx="352" cy="166" r="4"></circle>
+        <text class="m-label" x="330" y="196" text-anchor="middle">UADY</text>
+        <!-- airport -->
+        <circle class="m-dot" cx="128" cy="358" r="4"></circle>
+        <text class="m-label" x="128" y="381" text-anchor="middle" data-en="AIRPORT" data-es="AEROPUERTO">AIRPORT</text>
+        <!-- progreso -->
+        <text class="m-label" x="228" y="56" data-en="TO PROGRESO" data-es="A PROGRESO">TO PROGRESO</text>
+        <!-- periférico -->
+        <text class="m-label" x="60" y="168">PERIFÉRICO</text>
+        <!-- the property -->
+        <g transform="translate(426,118)">
+          <circle class="m-pin" cx="0" cy="0" r="7"></circle>
+          <circle cx="0" cy="0" r="15" fill="none" style="stroke:var(--gold-text); opacity:.35; stroke-width:2"></circle>
+        </g>
+        <text class="m-pin-label" x="426" y="162" text-anchor="middle">BOTÁNICO</text>
+        <text class="m-label" x="426" y="184" text-anchor="middle">CONKAL</text>
+        <text class="m-note" x="270" y="410" text-anchor="middle" data-en="SCHEMATIC · APPROXIMATE POSITIONS" data-es="ESQUEMA · POSICIONES APROXIMADAS">SCHEMATIC · APPROXIMATE POSITIONS</text>
+      </svg>
+    </div>
+  </div>
 </div>
 
 <div class="shell">
