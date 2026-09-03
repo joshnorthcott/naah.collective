@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Departamento 304A · Tuscania — Naah Collective</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}
+.back-link{
+  font-family:var(--f-body,"DM Sans",sans-serif);font-size:11px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-2);
+  text-decoration:none;transition:color .2s;white-space:nowrap;
+}
+.back-link:hover{color:var(--gold-text)}
+@media (max-width:560px){.back-link{display:none}}
+</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Finger+Paint&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F5F1; --paper-2:#EFEAE1;
+  --ink:#1E1C19; --ink-2:#6B6459; --ink-3:#938B7D;
+  --line:#E0DAD0; --line-soft:#EAE5DB;
+  --gold:#E1C790; --gold-text:#A2803F;
+  --deep:#1F3B34; --on-deep:#F2EFE8;
+  --shell:1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14130F; --paper-2:#1C1A16;
+    --ink:#F1EDE4; --ink-2:#B6AE9F; --ink-3:#8C8577;
+    --line:#2E2B25; --line-soft:#26231E;
+    --gold:#E1C790; --gold-text:#E1C790;
+    --deep:#16302A; --on-deep:#F2EFE8;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14130F; --paper-2:#1C1A16;
+  --ink:#F1EDE4; --ink-2:#B6AE9F; --ink-3:#8C8577;
+  --line:#2E2B25; --line-soft:#26231E;
+  --gold:#E1C790; --gold-text:#E1C790;
+  --deep:#16302A; --on-deep:#F2EFE8;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-weight:300; font-size:16.5px; line-height:1.65;
+  overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+.num{font-variant-numeric:tabular-nums}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text); outline-offset:3px}
+.shell{max-width:var(--shell); margin:0 auto; padding:0 28px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid var(--line-soft);
+}
+.bar-in{
+  max-width:var(--shell); margin:0 auto; padding:0 28px; height:56px;
+  display:flex; align-items:center; gap:18px;
+}
+.wordmark{
+  font-family:"Finger Paint","DM Sans",cursive; font-size:20px; font-weight:400;
+  color:var(--ink); text-decoration:none; line-height:1;
+}
+.wordmark span{color:var(--gold-text)}
+.ref{
+  margin-left:auto; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-3);
+}
+.lang{display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden}
+.lang button{
+  appearance:none; border:0; background:transparent; cursor:pointer;
+  font:inherit; font-size:11px; letter-spacing:.14em; font-weight:400;
+  padding:6px 12px; color:var(--ink-3);
+}
+.lang button[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
+
+/* ---------- hero ---------- */
+.hero-wrap{max-width:var(--shell); margin:0 auto; padding:26px 28px 0}
+.hero-grid{
+  display:grid; grid-template-columns:2.15fr 1fr;
+  grid-template-rows:minmax(0,1fr) minmax(0,1fr);
+  gap:12px; aspect-ratio:2/1;
+}
+.hero-grid > *{min-height:0; min-width:0}
+.hero-grid img{width:100%; height:100%; object-fit:cover; background:var(--paper-2)}
+.hero-main{grid-row:1 / span 2}
+.hero-map{overflow:hidden; background:var(--paper-2)}
+.hero-map svg{display:block; width:100%; height:100%; font-family:"DM Sans",Helvetica,Arial,sans-serif}
+.m-ring{fill:none; stroke:var(--line); stroke-width:2}
+.m-road{fill:none; stroke:var(--line); stroke-width:2}
+.m-dot{fill:var(--ink-3)}
+.m-label{fill:var(--ink-3); font-size:16px; letter-spacing:.13em}
+.m-pin{fill:var(--gold-text)}
+.m-pin-label{fill:var(--ink); font-size:19px; font-weight:500; letter-spacing:.09em}
+.m-note{fill:var(--ink-3); font-size:13px; letter-spacing:.1em}
+
+/* ---------- title ---------- */
+.title{
+  display:flex; flex-wrap:wrap; gap:24px 40px; align-items:flex-end;
+  justify-content:space-between; padding:44px 0 40px;
+  border-bottom:1px solid var(--line);
+}
+.eyebrow{
+  font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold-text); margin:0 0 14px;
+}
+h1{
+  font-weight:300; font-size:clamp(30px,4.4vw,46px); line-height:1.1;
+  margin:0 0 10px; letter-spacing:-.015em; text-wrap:balance;
+}
+.place{color:var(--ink-2); font-size:15px; margin:0}
+.price-wrap{text-align:right; margin-left:auto}
+.price{font-size:clamp(24px,3.2vw,32px); font-weight:400; letter-spacing:-.01em; white-space:nowrap; font-variant-numeric:tabular-nums}
+.price-note{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); margin-top:6px}
+
+/* ---------- layout ---------- */
+.grid{
+  display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:64px;
+  padding:56px 0 0; align-items:start;
+}
+.rail{position:sticky; top:78px}
+.rail-box{border:1px solid var(--line); padding:22px 22px 8px}
+.rail h2{
+  font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; font-weight:500;
+  color:var(--ink-3); margin:0 0 16px;
+}
+.spec{display:flex; justify-content:space-between; gap:16px; padding:9px 0; border-bottom:1px solid var(--line-soft); font-size:14px}
+.rail-box .spec:last-of-type{border-bottom:0}
+.spec dt{color:var(--ink-2); font-weight:300}
+.spec dd{margin:0; text-align:right; font-weight:400; font-variant-numeric:tabular-nums}
+.rail-note{font-size:12.5px; color:var(--ink-3); line-height:1.55; margin:16px 2px 0}
+
+/* ---------- prose ---------- */
+.lede{font-size:clamp(19px,2.1vw,22px); line-height:1.5; font-weight:300; margin:0 0 26px; color:var(--ink)}
+.body p{margin:0 0 18px; color:var(--ink-2); max-width:62ch}
+h2.sec{
+  font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:500;
+  color:var(--ink-3); margin:60px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line);
+}
+.cap{font-size:12.5px; color:var(--ink-3); margin:12px 0 0}
+
+/* ---------- galleries ---------- */
+.gal{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin:0}
+.gal img{width:100%; aspect-ratio:4/3; object-fit:cover; background:var(--paper-2)}
+.gal.tall img{aspect-ratio:3/4}
+.gal .wide{grid-column:1 / -1; aspect-ratio:3/2}
+.gal + .gal{margin-top:14px}
+
+/* ---------- feature lists ---------- */
+.cols{columns:2; column-gap:44px; margin:0; padding:0; list-style:none}
+.cols li{
+  break-inside:avoid; padding:8px 0 8px 18px; position:relative;
+  border-bottom:1px solid var(--line-soft); font-size:14.5px; color:var(--ink-2);
+}
+.cols li::before{content:""; position:absolute; left:0; top:17px; width:5px; height:5px; background:var(--gold); border-radius:50%}
+.sub{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); margin:34px 0 12px; font-weight:500}
+.sub:first-child{margin-top:0}
+
+/* ---------- cta ---------- */
+.cta{background:var(--deep); color:var(--on-deep); margin-top:88px; padding:76px 0}
+.cta h2{font-weight:300; font-size:clamp(24px,3.2vw,34px); line-height:1.2; margin:0 0 18px; letter-spacing:-.01em}
+.cta p{color:color-mix(in srgb, var(--on-deep) 76%, transparent); max-width:56ch; margin:0 0 14px; font-size:15.5px}
+.cta-inner{max-width:var(--shell); margin:0 auto; padding:0 28px}
+.actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:32px}
+.btn{
+  display:inline-block; text-decoration:none; font-size:13px; letter-spacing:.12em;
+  text-transform:uppercase; padding:14px 26px; border:1px solid var(--gold); color:var(--gold);
+}
+.btn.solid{background:var(--gold); color:#221E16; border-color:var(--gold)}
+.fideicomiso{
+  margin-top:36px; padding-top:22px; border-top:1px solid color-mix(in srgb, var(--on-deep) 22%, transparent);
+  font-size:13px; line-height:1.6; color:color-mix(in srgb, var(--on-deep) 66%, transparent); max-width:64ch;
+}
+
+/* ---------- footer ---------- */
+footer{padding:44px 0 60px; font-size:13px; color:var(--ink-3)}
+footer a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--line)}
+.foot-in{display:flex; flex-wrap:wrap; gap:8px 26px; align-items:baseline}
+.foot-mark{font-family:"Finger Paint","DM Sans",cursive; font-size:17px; color:var(--ink-2); line-height:1}
+.foot-mark span{color:var(--gold-text)}
+.disclaimer{margin-top:22px; font-size:11.5px; line-height:1.6; color:var(--ink-3); max-width:74ch}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr; gap:44px; padding-top:40px}
+  .rail{position:static; order:-1}
+  h2.sec{margin-top:48px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .shell,.bar-in,.cta-inner,.hero-wrap{padding-left:20px; padding-right:20px}
+  .hero-grid{grid-template-columns:1fr; grid-template-rows:auto auto auto; aspect-ratio:auto}
+  .hero-main{grid-row:auto; aspect-ratio:3/2}
+  .hero-side{aspect-ratio:3/2}
+  .hero-map{aspect-ratio:3/2}
+  .gal{grid-template-columns:1fr}
+  .gal .wide{aspect-ratio:3/2}
+  .cols{columns:1}
+  .title{padding:32px 0 30px}
+  .price-wrap{text-align:left; margin-left:0}
+  .cta{padding:56px 0}
+}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <a class="wordmark" href="index.html">Naah <span>Collective</span></a>
+    <a class="back-link" href="listings.html" data-en="← All listings" data-es="← Todas las propiedades">← All listings</a>
+    <span class="ref">TUS-304A</span>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</div>
+
+<div class="hero-wrap">
+  <div class="hero-grid">
+    <img class="hero-main" src="images/departamento-304a-tuscania-01.jpg" alt="The resort pool at Tuscania, with its shaded pavilion and lawn" width="1600" height="1143">
+    <img class="hero-side" style="object-position:50% 62%" src="images/departamento-304a-tuscania-02.jpg" alt="Open living and dining room looking through to the kitchen bar" loading="lazy" decoding="async">
+    <div class="hero-map">
+      <svg viewBox="0 0 540 420" role="img" aria-label="Locator map: Temozón Norte, on the north edge of Mérida" preserveAspectRatio="xMidYMid meet">
+        <!-- Periférico ring -->
+        <ellipse class="m-ring" cx="210" cy="264" rx="120" ry="100"></ellipse>
+        <!-- road to Progreso -->
+        <path class="m-road" d="M200 164 L 200 46"></path>
+        <!-- road out to the property -->
+        <path class="m-road" d="M296 190 C 332 174, 364 150, 388 124"></path>
+        <!-- road to the airport -->
+        <path class="m-road" d="M124 336 L 78 364"></path>
+        <!-- north arrow -->
+        <g transform="translate(36,42)">
+          <path class="m-road" d="M0 20 L0 -12"></path>
+          <path class="m-dot" d="M0 -20 L6 -6 L-6 -6 Z"></path>
+          <text class="m-label" x="0" y="38" text-anchor="middle">N</text>
+        </g>
+        <!-- progreso -->
+        <text class="m-label" x="200" y="32" text-anchor="middle" data-en="TO PROGRESO" data-es="A PROGRESO">TO PROGRESO</text>
+        <!-- periférico -->
+        <text class="m-label" x="8" y="196">PERIFÉRICO</text>
+        <!-- centre -->
+        <circle class="m-dot" cx="200" cy="296" r="4"></circle>
+        <text class="m-label" x="200" y="319" text-anchor="middle">CENTRO HISTÓRICO</text>
+        <!-- altabrisa -->
+        <circle class="m-dot" cx="268" cy="210" r="4"></circle>
+        <text class="m-label" x="268" y="233" text-anchor="middle">ALTABRISA</text>
+        <!-- uady -->
+        <circle class="m-dot" cx="330" cy="196" r="4"></circle>
+        <text class="m-label" x="316" y="201" text-anchor="end">UADY</text>
+        <!-- airport -->
+        <circle class="m-dot" cx="72" cy="368" r="4"></circle>
+        <text class="m-label" x="72" y="391" text-anchor="middle" data-en="AIRPORT" data-es="AEROPUERTO">AIRPORT</text>
+        <!-- the property -->
+        <g transform="translate(396,112)">
+          <circle class="m-pin" cx="0" cy="0" r="7"></circle>
+          <circle cx="0" cy="0" r="15" fill="none" style="stroke:var(--gold-text); opacity:.35; stroke-width:2"></circle>
+        </g>
+        <text class="m-pin-label" x="396" y="166" text-anchor="middle">TEMOZÓN NORTE</text>
+        <text class="m-label" x="396" y="196" text-anchor="middle">MÉRIDA</text>
+        <text class="m-note" x="300" y="412" text-anchor="middle" data-en="SCHEMATIC · APPROXIMATE POSITIONS" data-es="ESQUEMA · POSICIONES APROXIMADAS">SCHEMATIC · APPROXIMATE POSITIONS</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+  <div class="title">
+    <div>
+      <p class="eyebrow" data-en="Tuscania · Temozón Norte" data-es="Tuscania · Temozón Norte">Tuscania · Temozón Norte</p>
+      <h1 data-en="Departamento 304A · Tuscania" data-es="Departamento 304A · Tuscania">Departamento 304A · Tuscania</h1>
+      <p class="place" data-en="North Mérida, Yucatán" data-es="Norte de Mérida, Yucatán">North Mérida, Yucatán</p>
+    </div>
+    <div class="price-wrap">
+      <div class="price">$17,000 MXN</div>
+      <div class="price-note" data-en="Per month · maintenance, water and refuse included" data-es="Mensual · mantenimiento, agua y basura incluidos">Per month · maintenance, water and refuse included</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- ============ LEFT ============ -->
+    <main class="body">
+      <p class="lede" data-en="A brand-new two-bedroom apartment on the second level, north-facing over the gardens and the pool, with its own private rooftop reached by a spiral stair — 112 m² in the heart of Temozón Norte."
+         data-es="Un departamento a estrenar de dos recámaras en el nivel 2, con orientación norte hacia los jardines y la alberca, y rooftop privado al que se sube por escalera de caracol — 112 m² en el corazón de Temozón Norte.">A brand-new two-bedroom apartment on the second level, north-facing over the gardens and the pool, with its own private rooftop reached by a spiral stair — 112 m² in the heart of Temozón Norte.</p>
+
+      <p data-en="Nothing here has been lived in yet. Travertine-toned porcelain runs the full length of the apartment, from the open living and dining room through to the bedrooms, and the north orientation keeps it cool and evenly lit — the windows look into the crowns of the trees rather than at a neighbouring wall."
+         data-es="Nada aquí se ha estrenado todavía. El porcelanato en tono travertino recorre todo el departamento, de la sala-comedor abierta hasta las recámaras, y la orientación norte lo mantiene fresco y con luz pareja — las ventanas dan a las copas de los árboles, no al muro del vecino.">Nothing here has been lived in yet. Travertine-toned porcelain runs the full length of the apartment, from the open living and dining room through to the bedrooms, and the north orientation keeps it cool and evenly lit — the windows look into the crowns of the trees rather than at a neighbouring wall.</p>
+
+      <p data-en="The kitchen is generous for an apartment of this size, with a granite bar that doubles as the dining counter, chocolate-toned carpentry and a full run of upper cabinets. A separate laundry room off the hall takes the water heater and the washer, so nothing is tucked into a cupboard."
+         data-es="La cocina es amplia para un departamento de este tamaño, con barra de granito que sirve también de desayunador, carpintería en tono chocolate y una línea completa de alacenas. El cuarto de lavado, independiente y sobre el pasillo, aloja el calentador y la lavadora, sin nada escondido en un clóset.">The kitchen is generous for an apartment of this size, with a granite bar that doubles as the dining counter, chocolate-toned carpentry and a full run of upper cabinets. A separate laundry room off the hall takes the water heater and the washer, so nothing is tucked into a cupboard.</p>
+
+      <p data-en="Both bedrooms are air-conditioned, fitted with blackout blinds and carry their own closets — the principal a walk-in dressing room, the second a fitted wardrobe with drawers. Each has a full bathroom finished in travertine, with a frameless glass shower and a stone vanity top."
+         data-es="Las dos recámaras cuentan con clima, persianas black out y clóset propio — la principal con vestidor y la segunda con clóset de cajonera integrada. Cada una tiene baño completo en travertino, con cancel de cristal y cubierta de piedra.">Both bedrooms are air-conditioned, fitted with blackout blinds and carry their own closets — the principal a walk-in dressing room, the second a fitted wardrobe with drawers. Each has a full bathroom finished in travertine, with a frameless glass shower and a stone vanity top.</p>
+
+      <h2 class="sec" data-en="Inside" data-es="Interiores">Inside</h2>
+      <div class="gal tall">
+        <img src="images/departamento-304a-tuscania-02.jpg" alt="Open living and dining room looking through to the kitchen bar" loading="lazy" decoding="async">
+        <img src="images/departamento-304a-tuscania-03.jpg" alt="The north outlook from the apartment — treetops and the pool below" loading="lazy" decoding="async">
+      </div>
+      <div class="gal tall">
+        <img src="images/departamento-304a-tuscania-04.jpg" alt="Kitchen with granite counter, chocolate carpentry and upper cabinets" loading="lazy" decoding="async">
+        <img src="images/departamento-304a-tuscania-05.jpg" alt="Separate laundry room with water heater" loading="lazy" decoding="async">
+      </div>
+      <div class="gal tall">
+        <img src="images/departamento-304a-tuscania-06.jpg" alt="Principal bedroom with ceiling fan and air conditioning" loading="lazy" decoding="async">
+        <img src="images/departamento-304a-tuscania-07.jpg" alt="Walk-in dressing room off the principal bedroom" loading="lazy" decoding="async">
+      </div>
+      <div class="gal tall">
+        <img src="images/departamento-304a-tuscania-08.jpg" alt="Second bedroom with fitted wardrobe and drawers" loading="lazy" decoding="async">
+        <img src="images/departamento-304a-tuscania-09.jpg" alt="Bedroom corner window looking into the trees" loading="lazy" decoding="async">
+      </div>
+      <div class="gal tall">
+        <img src="images/departamento-304a-tuscania-10.jpg" alt="Bathroom with glass shower enclosure beside the dressing room" loading="lazy" decoding="async">
+        <img src="images/departamento-304a-tuscania-11.jpg" alt="Stone vanity top with round mirror" loading="lazy" decoding="async">
+      </div>
+      <div class="gal tall">
+        <img src="images/departamento-304a-tuscania-12.jpg" alt="Travertine-lined shower with rainfall head and recessed niche" loading="lazy" decoding="async">
+        <img src="images/departamento-304a-tuscania-13.jpg" alt="Second bathroom with backlit mirror and stone counter" loading="lazy" decoding="async">
+      </div>
+
+      <h2 class="sec" data-en="The private rooftop" data-es="El rooftop privado">The private rooftop</h2>
+      <p data-en="A spiral stair rises from the hall to a rooftop that belongs to this apartment alone. Half of it is covered and already plumbed and wired for an outdoor kitchen, with a poured concrete bar; the other half is open to the sky, high enough to clear the tree line and catch the evening breeze."
+         data-es="Una escalera de caracol sube desde el pasillo a un rooftop de uso exclusivo. La mitad está techada y ya cuenta con instalaciones para cocina exterior, con barra de concreto colado; la otra mitad queda abierta al cielo, por encima de la línea de los árboles y en el paso de la brisa de la tarde.">A spiral stair rises from the hall to a rooftop that belongs to this apartment alone. Half of it is covered and already plumbed and wired for an outdoor kitchen, with a poured concrete bar; the other half is open to the sky, high enough to clear the tree line and catch the evening breeze.</p>
+      <div class="gal tall">
+        <img src="images/departamento-304a-tuscania-14.jpg" alt="Black spiral staircase rising to the rooftop" loading="lazy" decoding="async">
+        <img src="images/departamento-304a-tuscania-15.jpg" alt="Open half of the rooftop terrace under blue sky" loading="lazy" decoding="async">
+      </div>
+      <div class="gal tall">
+        <img src="images/departamento-304a-tuscania-16.jpg" alt="Covered rooftop area with concrete bar and service point" loading="lazy" decoding="async">
+        <img src="images/departamento-304a-tuscania-17.jpg" alt="Rooftop bar looking out over the treetops" loading="lazy" decoding="async">
+      </div>
+      <p class="cap" data-en="The covered half is already prepared for an outdoor kitchen."
+         data-es="La sección techada ya está preparada para cocina exterior.">The covered half is already prepared for an outdoor kitchen.</p>
+
+      <h2 class="sec" data-en="Finishes &amp; equipment" data-es="Acabados y equipamiento">Finishes &amp; equipment</h2>
+
+      <p class="sub" data-en="Fitted throughout" data-es="Equipamiento">Fitted throughout</p>
+      <ul class="cols">
+        <li data-en="Travertine-toned porcelain floors throughout" data-es="Pisos de porcelanato en tono travertino en todo el departamento">Travertine-toned porcelain floors throughout</li>
+        <li data-en="Air conditioning in both bedrooms and the living room" data-es="Clima en las dos recámaras y en la sala">Air conditioning in both bedrooms and the living room</li>
+        <li data-en="Ceiling fans in every room" data-es="Ventiladores de techo en todas las habitaciones">Ceiling fans in every room</li>
+        <li data-en="Blackout blinds in both bedrooms" data-es="Persianas black out en ambas recámaras">Blackout blinds in both bedrooms</li>
+        <li data-en="Blinds to the living and dining room" data-es="Persianas en sala y comedor">Blinds to the living and dining room</li>
+        <li data-en="Walk-in dressing room to the principal bedroom" data-es="Vestidor en la recámara principal">Walk-in dressing room to the principal bedroom</li>
+        <li data-en="Fitted wardrobe with drawers to the second bedroom" data-es="Clóset con cajonera en la segunda recámara">Fitted wardrobe with drawers to the second bedroom</li>
+        <li data-en="Equipped kitchen with granite bar and cooktop" data-es="Cocina equipada con barra de granito y parrilla">Equipped kitchen with granite bar and cooktop</li>
+        <li data-en="Separate laundry room" data-es="Cuarto de lavado independiente">Separate laundry room</li>
+        <li data-en="Water heater" data-es="Calentador de agua">Water heater</li>
+        <li data-en="Two full bathrooms, frameless glass showers" data-es="Dos baños completos con canceles de cristal">Two full bathrooms, frameless glass showers</li>
+        <li data-en="Private rooftop, prepared for an outdoor kitchen" data-es="Rooftop privado, preparado para cocina exterior">Private rooftop, prepared for an outdoor kitchen</li>
+      </ul>
+
+      <p class="sub" data-en="Included in the rent" data-es="Incluido en la renta">Included in the rent</p>
+      <ul class="cols">
+        <li data-en="Monthly maintenance fee" data-es="Cuota de mantenimiento mensual">Monthly maintenance fee</li>
+        <li data-en="Water" data-es="Agua">Water</li>
+        <li data-en="Refuse collection" data-es="Recolección de basura">Refuse collection</li>
+        <li data-en="Two parking spaces" data-es="Dos cajones de estacionamiento">Two parking spaces</li>
+        <li data-en="24/7 security, 365 days a year" data-es="Vigilancia 24/7, los 365 días">24/7 security, 365 days a year</li>
+        <li data-en="Use of the pool and common areas" data-es="Uso de la alberca y áreas comunes">Use of the pool and common areas</li>
+      </ul>
+
+      <h2 class="sec" data-en="The apartment" data-es="El departamento">The apartment</h2>
+      <p data-en="112 m² on the second level, facing north over the development's gardens and pool. Two parking spaces come with it. The apartment is offered unfurnished and brand new, and pets are not permitted."
+         data-es="112 m² en el nivel 2, con orientación norte hacia los jardines y la alberca del desarrollo. Se entrega con dos cajones de estacionamiento. El departamento se ofrece sin amueblar y a estrenar; no se aceptan mascotas.">112 m² on the second level, facing north over the development's gardens and pool. Two parking spaces come with it. The apartment is offered unfurnished and brand new, and pets are not permitted.</p>
+
+      <h2 class="sec" data-en="Tuscania Temozón Norte" data-es="Tuscania Temozón Norte">Tuscania Temozón Norte</h2>
+      <p data-en="Temozón Norte is the address most people mean when they say north Mérida — the stretch above the Periférico on the Progreso road, where the city's newest restaurants, schools and shopping sit within a few minutes of each other. Altabrisa, Up Town, the UADY campus and City Center are all a short drive, and Progreso and the coast are half an hour up the highway."
+         data-es="Temozón Norte es la dirección que la gente tiene en mente cuando dice el norte de Mérida — el tramo arriba del Periférico sobre la carretera a Progreso, donde los restaurantes, colegios y plazas más nuevos de la ciudad quedan a unos minutos entre sí. Altabrisa, Up Town, el campus de la UADY y City Center están cerca en auto, y Progreso y la costa a media hora por la carretera.">Temozón Norte is the address most people mean when they say north Mérida — the stretch above the Periférico on the Progreso road, where the city's newest restaurants, schools and shopping sit within a few minutes of each other. Altabrisa, Up Town, the UADY campus and City Center are all a short drive, and Progreso and the coast are half an hour up the highway.</p>
+      <p data-en="Tuscania itself is built around a hotel-style pool set in mature gardens, with a shaded pavilion, lounge terrace, lawn and a children's play area, and security on the gate around the clock. The apartment looks straight out over it."
+         data-es="Tuscania se organiza alrededor de una alberca tipo hotel en jardines ya maduros, con palapa techada, terraza de descanso, área verde y juegos infantiles, además de vigilancia en caseta las 24 horas. El departamento da justo hacia ese conjunto.">Tuscania itself is built around a hotel-style pool set in mature gardens, with a shaded pavilion, lounge terrace, lawn and a children's play area, and security on the gate around the clock. The apartment looks straight out over it.</p>
+      <div class="gal">
+        <img class="wide" src="images/departamento-304a-tuscania-18.jpg" alt="The pool and pavilion seen from the timber deck" loading="lazy" decoding="async">
+      </div>
+      <div class="gal tall">
+        <img src="images/departamento-304a-tuscania-19.jpg" alt="Planted walkway leading down to the pool through mature gardens" loading="lazy" decoding="async">
+        <img src="images/departamento-304a-tuscania-20.jpg" alt="Shaded pavilion over the pool with slatted timber ceiling" loading="lazy" decoding="async">
+      </div>
+      <p class="cap" data-en="The pool, gardens and play area are shared by the residents of Tuscania."
+         data-es="La alberca, los jardines y el área de juegos son de uso común para los residentes de Tuscania.">The pool, gardens and play area are shared by the residents of Tuscania.</p>
+    </main>
+
+    <!-- ============ RAIL ============ -->
+    <aside class="rail">
+      <div class="rail-box">
+        <h2 data-en="At a glance" data-es="Ficha técnica">At a glance</h2>
+        <dl style="margin:0">
+          <div class="spec"><dt data-en="Interior" data-es="Superficie">Interior</dt><dd>112 m²</dd></div>
+          <div class="spec"><dt data-en="Bedrooms" data-es="Recámaras">Bedrooms</dt><dd>2</dd></div>
+          <div class="spec"><dt data-en="Bathrooms" data-es="Baños">Bathrooms</dt><dd>2</dd></div>
+          <div class="spec"><dt data-en="Level" data-es="Nivel">Level</dt><dd>2</dd></div>
+          <div class="spec"><dt data-en="Rooftop" data-es="Rooftop">Rooftop</dt><dd data-en="Private" data-es="Privado">Private</dd></div>
+          <div class="spec"><dt data-en="Orientation" data-es="Orientación">Orientation</dt><dd data-en="North" data-es="Norte">North</dd></div>
+          <div class="spec"><dt data-en="Outlook" data-es="Vista">Outlook</dt><dd data-en="Pool &amp; gardens" data-es="Alberca y jardines">Pool &amp; gardens</dd></div>
+          <div class="spec"><dt data-en="Parking" data-es="Estacionamiento">Parking</dt><dd data-en="2 spaces" data-es="2 cajones">2 spaces</dd></div>
+          <div class="spec"><dt data-en="Condition" data-es="Estado">Condition</dt><dd data-en="Brand new" data-es="A estrenar">Brand new</dd></div>
+          <div class="spec"><dt data-en="Furnishing" data-es="Mobiliario">Furnishing</dt><dd data-en="Unfurnished" data-es="Sin amueblar">Unfurnished</dd></div>
+          <div class="spec"><dt data-en="Pets" data-es="Mascotas">Pets</dt><dd data-en="Not permitted" data-es="No se aceptan">Not permitted</dd></div>
+          <div class="spec"><dt data-en="Security" data-es="Vigilancia">Security</dt><dd>24/7</dd></div>
+        </dl>
+        <p class="rail-note" data-en="Maintenance, water and refuse are included in the monthly rent. Gated, with a hotel-style pool and gardens."
+           data-es="Mantenimiento, agua y basura incluidos en la renta mensual. Privada con alberca tipo hotel y jardines.">Maintenance, water and refuse are included in the monthly rent. Gated, with a hotel-style pool and gardens.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2 data-en="Arrange a viewing" data-es="Agenda una visita">Arrange a viewing</h2>
+    <p data-en="We show 304A by appointment, in person or over video for tenants arriving from outside Mérida."
+       data-es="Mostramos el 304A con cita previa, en persona o por videollamada para quienes llegan de fuera de Mérida.">We show 304A by appointment, in person or over video for tenants arriving from outside Mérida.</p>
+    <p><strong style="font-weight:500">Josh Northcott</strong> · Naah Collective · Mérida</p>
+    <div class="actions">
+      <a class="btn solid" href="https://wa.me/529993355302">WhatsApp</a>
+      <a class="btn" href="mailto:josh@naahcollective.com?subject=Departamento%20304A%20%C2%B7%20Tuscania" data-en="Email us" data-es="Escríbenos">Email us</a>
+    </div>
+    <p class="fideicomiso" data-en="Rental terms: $17,000 MXN per month, with the maintenance fee, water and refuse collection included — you cover electricity, gas and internet. Two parking spaces come with the apartment, which is offered unfurnished and brand new. Pets are not permitted. Lease term, deposit and the documents required are agreed on application; we will send the full list before you view."
+       data-es="Condiciones de renta: $17,000 MXN mensuales, con mantenimiento, agua y recolección de basura incluidos — la luz, el gas y el internet corren por cuenta del inquilino. El departamento incluye dos cajones de estacionamiento y se entrega sin amueblar, a estrenar. No se aceptan mascotas. La vigencia del contrato, el depósito y la documentación se acuerdan al momento de la solicitud; enviamos la lista completa antes de la visita.">Rental terms: $17,000 MXN per month, with the maintenance fee, water and refuse collection included — you cover electricity, gas and internet. Two parking spaces come with the apartment, which is offered unfurnished and brand new. Pets are not permitted. Lease term, deposit and the documents required are agreed on application; we will send the full list before you view.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <div class="foot-in">
+      <span class="foot-mark">Naah <span>Collective</span></span>
+      <span>Mérida, Yucatán</span>
+      <a href="mailto:josh@naahcollective.com">josh@naahcollective.com</a>
+      <a href="https://wa.me/529993355302">+52 999 335 5302</a>
+    </div>
+    <p class="disclaimer" data-en="Information is believed reliable but is not guaranteed and may change without notice; areas, specifications and rent are subject to confirmation. Images may have been digitally enhanced and may not reflect the property's current condition. Interested parties should verify conditions in person, by appointment."
+       data-es="La información proviene de fuente confiable pero no está garantizada y puede cambiar sin previo aviso; superficies, especificaciones y renta están sujetos a confirmación. Las imágenes pueden haber sido mejoradas digitalmente y pueden no reflejar la condición actual de la propiedad. Las partes interesadas deberán confirmar las condiciones en persona, previa cita.">Information is believed reliable but is not guaranteed and may change without notice; areas, specifications and rent are subject to confirmation. Images may have been digitally enhanced and may not reflect the property's current condition. Interested parties should verify conditions in person, by appointment.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nodes = document.querySelectorAll('[data-en]');
+  var btns = document.querySelectorAll('.lang button');
+  function set(lang){
+    nodes.forEach(function(n){
+      var v = n.getAttribute('data-' + lang);
+      if (v) n.textContent = v;
+    });
+    document.documentElement.lang = lang;
+    btns.forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
+    });
+    try { localStorage.setItem('naah-lang', lang); } catch (e) {}
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ set(b.dataset.lang); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('naah-lang'); } catch (e) {}
+  if (saved === 'es') set('es');
+})();
+</script>
+
+
+</body>
+</html>
