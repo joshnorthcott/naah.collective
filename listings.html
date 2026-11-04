@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Featured Properties — Naah Collective</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="Current homes for sale and for rent across Mérida and the surrounding municipalities.">
+<link rel="canonical" href="https://naahcollective.com/listings.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Naah Collective">
+<meta property="og:title" content="Featured Properties — Naah Collective">
+<meta property="og:description" content="Current homes for sale and for rent across Mérida and the surrounding municipalities.">
+<meta property="og:url" content="https://naahcollective.com/listings.html">
+<meta property="og:image" content="https://naahcollective.com/og-listings.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Featured Properties — Naah Collective">
+<meta name="twitter:description" content="Current homes for sale and for rent across Mérida and the surrounding municipalities.">
+<meta name="twitter:image" content="https://naahcollective.com/og-listings.jpg">
+<!-- /og -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&amp;family=Finger+Paint&amp;display=swap" rel="stylesheet"/>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #E1C790;
+  --gold-dark: #C4A665;
+  --black: #0A0A0A;
+  --white: #FAFAF8;
+  --gray-100: #F4F4F2;
+  --gray-200: #E8E8E4;
+  --gray-400: #9A9A94;
+  --gray-600: #5A5A54;
+  --deep: #1F3B34;
+  --radius: 12px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: 'Finger Paint', cursive; font-weight: 400; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  background: rgba(10,10,10,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(225,199,144,0.12);
+}
+.nav-logo img { height: 48px; width: auto; display: block; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a {
+  color: rgba(250,250,248,0.65);
+  text-decoration: none;
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta {
+  background: var(--gold) !important;
+  color: var(--black) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  font-weight: 700 !important;
+}
+.nav-cta:hover { background: var(--gold-dark) !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s ease; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px; left: 0; right: 0;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(14px);
+  padding: 1.5rem 1.5rem 2rem;
+  flex-direction: column;
+  z-index: 999;
+  border-bottom: 1px solid rgba(225,199,144,0.15);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: rgba(250,250,248,0.75);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  letter-spacing: 0.04em;
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu a.nav-cta {
+  margin-top: 1rem;
+  color: var(--black) !important;
+  padding: 0.85rem 1.5rem;
+  text-align: center;
+  border-bottom: none;
+}
+@media (max-width: 768px) { .hamburger { display: flex; } }
+
+/* ── PAGE HEAD ── */
+.page-head {
+  background: var(--black);
+  padding: 9rem 3rem 4.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(225,199,144,0.15);
+}
+.page-head .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+}
+.page-head h1 {
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.page-head p {
+  font-size: 0.97rem;
+  color: rgba(250,250,248,0.6);
+  line-height: 1.75;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ── FILTERS ── */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding: 2.5rem 1.25rem 0;
+  background: var(--gray-100);
+}
+.filter-btn {
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 1.4rem;
+  border-radius: 100px;
+  border: 1px solid var(--gray-200);
+  background: white;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--black); }
+.filter-btn.active {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+/* ── GRID ── */
+.listings-wrap { background: var(--gray-100); padding: 2.5rem 3rem 6rem; }
+.listings-inner { max-width: 1200px; margin: 0 auto; }
+
+.count {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+.property-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.property-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.property-card[hidden] { display: none; }
+
+.property-img { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--gray-200); }
+.property-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
+.property-card:hover .property-img img { transform: scale(1.05); }
+
+.property-badge {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+}
+.property-ref {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  background: rgba(10,10,10,0.7);
+  color: rgba(250,250,248,0.85);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  backdrop-filter: blur(6px);
+}
+
+.property-info { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.property-info h3 { font-size: 1.15rem; margin-bottom: 0.35rem; line-height: 1.3; }
+.property-loc { font-size: 0.8rem; color: var(--gray-400); margin-bottom: 1rem; }
+.property-price { font-size: 1.05rem; font-weight: 700; color: var(--black); }
+.property-price span { font-size: 0.78rem; font-weight: 400; color: var(--gray-400); }
+
+.property-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.78rem;
+  color: var(--gray-600);
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+  flex-wrap: wrap;
+}
+.property-view {
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.property-card:hover .property-view { color: var(--black); }
+
+.empty {
+  text-align: center;
+  color: var(--gray-400);
+  font-size: 0.9rem;
+  padding: 3rem 0;
+}
+
+/* ── ENQUIRY ── */
+.enquiry { background: var(--deep); padding: 5rem 3rem; text-align: center; }
+.enquiry h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); color: #F2EFE8; margin-bottom: 0.9rem; }
+.enquiry p { color: rgba(242,239,232,0.7); font-size: 0.95rem; line-height: 1.7; max-width: 520px; margin: 0 auto 2rem; }
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+  padding: 0.85rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-block;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer { background: var(--black); padding: 4rem 3rem 2rem; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 2rem;
+}
+.footer-brand img { height: 56px; width: auto; margin-bottom: 1rem; display: block; }
+.footer-brand p { font-size: 0.83rem; color: rgba(250,250,248,0.45); line-height: 1.7; max-width: 260px; }
+.footer-col h4 {
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.35);
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.65rem; }
+.footer-col ul li a { color: rgba(250,250,248,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--gold); }
+.footer-contact p { font-size: 0.85rem; color: rgba(250,250,248,0.6); margin-bottom: 0.5rem; line-height: 1.6; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: 0.75rem; color: rgba(250,250,248,0.3); }
+.social-links { display: flex; gap: 0.75rem; }
+.social-links a {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(250,250,248,0.5);
+  text-decoration: none;
+  font-size: 0.72rem;
+  transition: all 0.2s;
+}
+.social-links a:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .page-head { padding: 7.5rem 1.25rem 3.5rem; }
+  .listings-wrap { padding: 2rem 1.25rem 4rem; }
+  .enquiry { padding: 4rem 1.25rem; }
+  .grid { grid-template-columns: 1fr; }
+  footer { padding: 3rem 1.25rem 1.5rem; }
+  .footer-top { grid-template-columns: 1fr; }
+}
+
+/* ── LANGUAGE TOGGLE ── */
+.lang { display: flex; border: 1px solid rgba(255,255,255,0.22); border-radius: 999px; overflow: hidden; }
+.lang button {
+  appearance: none; border: 0; background: transparent; cursor: pointer;
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(250,250,248,0.6); padding: 0.4rem 0.7rem;
+  transition: background 0.2s, color 0.2s;
+}
+.lang button:hover { color: var(--gold); }
+.lang button[aria-pressed="true"] { background: var(--gold); color: var(--black); }
+.mobile-menu .lang { margin-top: 1.25rem; align-self: flex-start; }
+/* ── SOLD LISTINGS ── */
+.property-card[data-status="sold"] .property-badge { background: var(--deep); color: var(--white); }
+.property-card[data-status="sold"] .property-img img { filter: grayscale(.4) brightness(.93); transition: transform 0.5s, filter 0.4s; }
+.property-card[data-status="sold"]:hover .property-img img { filter: none; }
+.property-sold-note { font-size: 0.95rem; font-weight: 700; color: var(--deep); }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+<a class="nav-logo" href="index.html">
+<img alt="Naah Collective" src="Naah_White.png"/>
+</a>
+<ul class="nav-links">
+<li><a data-en="About us" data-es="Nosotros" href="index.html#about">About us</a></li>
+<li><a data-en="Services" data-es="Servicios" href="index.html#services">Services</a></li>
+<li><a data-en="Zones" data-es="Zonas" href="zones.html">Zones</a></li>
+<li><a class="active" data-en="Listings" data-es="Propiedades" href="listings.html">Listings</a></li>
+<li><a data-en="FAQ" data-es="Preguntas" href="index.html#faq">FAQ</a></li>
+<li><a class="nav-cta" data-en="Contact us" data-es="Contáctanos" href="https://wa.me/529993355302" target="_blank">Contact us</a></li>
+<li class="lang-li">
+<div aria-label="Language / Idioma" class="lang" role="group">
+<button aria-pressed="true" data-lang="en" type="button">EN</button>
+<button aria-pressed="false" data-lang="es" type="button">ES</button>
+</div>
+</li>
+</ul>
+<button class="hamburger" id="hamburger" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a data-en="About us" data-es="Nosotros" href="index.html#about" onclick="closeMenu()">About us</a>
+<a data-en="Services" data-es="Servicios" href="index.html#services" onclick="closeMenu()">Services</a>
+<a data-en="Zones" data-es="Zonas" href="zones.html" onclick="closeMenu()">Zones</a>
+<a data-en="Listings" data-es="Propiedades" href="listings.html" onclick="closeMenu()">Listings</a>
+<a data-en="FAQ" data-es="Preguntas" href="index.html#faq" onclick="closeMenu()">FAQ</a>
+<a class="nav-cta" data-en="Contact us" data-es="Contáctanos" href="https://wa.me/529993355302" onclick="closeMenu()" target="_blank">Contact us</a>
+<div aria-label="Language / Idioma" class="lang" role="group">
+<button aria-pressed="true" data-lang="en" type="button">EN</button>
+<button aria-pressed="false" data-lang="es" type="button">ES</button>
+</div>
+</div>
+<!-- PAGE HEAD -->
+<header class="page-head">
+<p class="label" data-en="Featured Properties" data-es="Propiedades destacadas">Featured Properties</p>
+<h1 data-en="Homes we are showing now" data-es="Propiedades que estamos mostrando">Homes we are showing now</h1>
+<p data-en="A small, current selection across Mérida and the surrounding municipalities — each one visited, verified and documented by us before it appears here." data-es="Una selección breve y actual en Mérida y los municipios vecinos — cada una visitada, verificada y documentada por nosotros antes de aparecer aquí.">A small, current selection across Mérida and the surrounding municipalities — each one visited, verified and documented by us before it appears here.</p>
+</header>
+<!-- FILTERS -->
+<div class="filters">
+<button class="filter-btn active" data-en="All" data-es="Todas" data-filter="all" onclick="setFilter(this)">All</button>
+<button class="filter-btn" data-en="For sale" data-es="En venta" data-filter="sale" onclick="setFilter(this)">For sale</button>
+<button class="filter-btn" data-en="For rent" data-es="En renta" data-filter="rent" onclick="setFilter(this)">For rent</button>
+<button class="filter-btn" data-en="Sold" data-es="Vendidas" data-filter="sold" hidden="" id="soldTab" onclick="setFilter(this)">Sold</button>
+</div>
+<!-- LISTINGS -->
+<div class="listings-wrap">
+<div class="listings-inner">
+<p class="count" id="count"></p>
+<div class="grid" id="grid">
+<a class="property-card" data-type="sale" href="villa-36.html">
+<div class="property-img">
+<img alt="Villa 36, Yucatán Country Club" loading="lazy" src="thumb-villa-36.jpg"/>
+<span class="property-badge" data-en="For sale" data-es="En venta">For sale</span>
+<span class="property-ref">YCC-36</span>
+</div>
+<div class="property-info">
+<h3>Villa 36</h3>
+<p class="property-loc">Yucatán Country Club · Mérida</p>
+<p class="property-price">$14,900,000 <span>MXN</span></p>
+<div class="property-meta">
+<span data-en="3 bed" data-es="3 rec">3 bed</span><span data-en="4½ bath" data-es="4½ baños">4½ bath</span><span>365 m²</span><span data-en="726 m² land" data-es="726 m² terreno">726 m² land</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="sale" href="casa-11g-botanico.html">
+<div class="property-img">
+<img alt="Casa 11G, Residencial Botánico, Conkal" loading="lazy" src="thumb-casa-11g-botanico.jpg"/>
+<span class="property-badge" data-en="For sale" data-es="En venta">For sale</span>
+<span class="property-ref">BOT-11G</span>
+</div>
+<div class="property-info">
+<h3>Casa 11G · Botánico</h3>
+<p class="property-loc">Residencial Botánico · Conkal</p>
+<p class="property-price">$3,750,000 <span>MXN</span></p>
+<div class="property-meta">
+<span data-en="3 bed" data-es="3 rec">3 bed</span><span data-en="3½ bath" data-es="3½ baños">3½ bath</span><span>176 m²</span><span data-en="3 × 9 m pool" data-es="alberca 3 × 9 m">3 × 9 m pool</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="sale" href="departamento-kinuh.html">
+<div class="property-img">
+<img alt="Kinuh, beachfront residence, Telchac Puerto" loading="lazy" src="thumb-departamento-kinuh.jpg"/>
+<span class="property-badge" data-en="For sale" data-es="En venta">For sale</span>
+<span class="property-ref">KIN</span>
+</div>
+<div class="property-info">
+<h3>Kinuh</h3>
+<p class="property-loc">Telchac Puerto · Yucatán</p>
+<p class="property-price">$13,000,000 <span>MXN</span></p>
+<div class="property-meta">
+<span data-en="3 bed" data-es="3 rec">3 bed</span><span data-en="4½ bath" data-es="4½ baños">4½ bath</span><span>212 m²</span><span data-en="Private pool terrace" data-es="Terraza con alberca">Private pool terrace</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="sale" href="departamento-208-triventto.html">
+<div class="property-img">
+<img alt="Apartment 208, Triventto, Sodzil Norte" loading="lazy" src="thumb-departamento-208-triventto.jpg"/>
+<span class="property-badge" data-en="For sale" data-es="En venta">For sale</span>
+<span class="property-ref">TRV-208</span>
+</div>
+<div class="property-info">
+<h3 data-en="Apartment 208 · Triventto" data-es="Departamento 208 · Triventto">Apartment 208 · Triventto</h3>
+<p class="property-loc">Triventto · Sodzil Norte</p>
+<p class="property-price">$2,200,000 <span>MXN</span></p>
+<div class="property-meta">
+<span data-en="1 bed" data-es="1 rec">1 bed</span><span data-en="1 bath" data-es="1 baño">1 bath</span><span>51 m²</span><span data-en="Furnished" data-es="Amueblado">Furnished</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-status="sold" data-type="sale" href="casa-yaxkukul.html">
+<div class="property-img">
+<img alt="Casa Yaxkukul, Yaxkukul, Yucatán" loading="lazy" src="thumb-casa-yaxkukul.jpg"/>
+<span class="property-badge" data-en="Sold" data-es="Vendida">Sold</span>
+<span class="property-ref">YAX-24</span>
+</div>
+<div class="property-info">
+<h3>Casa Yaxkukul</h3>
+<p class="property-loc">Yaxkukul · Yucatán</p>
+<p class="property-sold-note" data-en="Sold by Naah Collective" data-es="Vendida por Naah Collective">Sold by Naah Collective</p>
+<div class="property-meta">
+<span data-en="4 bed" data-es="4 rec">4 bed</span><span data-en="3 bath" data-es="3 baños">3 bath</span><span>490 m²</span><span data-en="1.2 ha lot" data-es="Terreno 1.2 ha">1.2 ha lot</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="sale" href="villas-de-lalaing.html">
+<div class="property-img">
+<img alt="Villas de Lalaing, private estate near Acanceh, Yucatan" loading="lazy" src="thumb-villas-de-lalaing.jpg"/>
+<span class="property-badge" data-en="For sale" data-es="En venta">For sale</span>
+<span class="property-ref">LAL</span>
+</div>
+<div class="property-info">
+<h3>Villas de Lalaing</h3>
+<p class="property-loc">Acanceh · Yucatán</p>
+<p class="property-price">$11,877,000 <span>MXN</span></p>
+<div class="property-meta">
+<span data-en="2 bed + suite" data-es="2 rec + suite">2 bed + suite</span><span data-en="4 bath" data-es="4 baños">4 bath</span><span data-en="6.7 ha estate" data-es="Finca 6.7 ha">6.7 ha estate</span><span data-en="Off-grid solar" data-es="Solar fuera de red">Off-grid solar</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="sale" href="casa-santa-lucia-nortemerida.html">
+<div class="property-img">
+<img alt="Casa Santa Lucía, Residencial Nortemérida, north of Mérida" loading="lazy" src="thumb-casa-santa-lucia-nortemerida.jpg"/>
+<span class="property-badge" data-en="For sale" data-es="En venta">For sale</span>
+<span class="property-ref">NTM</span>
+</div>
+<div class="property-info">
+<h3>Casa Santa Lucía · Nortemérida</h3>
+<p class="property-loc">Residencial Nortemérida · Komchén</p>
+<p class="property-price">$15,000,000 <span>MXN</span></p>
+<div class="property-meta">
+<span data-en="4 bed" data-es="4 rec">4 bed</span><span data-en="4½ bath" data-es="4½ baños">4½ bath</span><span>490 m²</span><span data-en="Solar + pool" data-es="Solar + alberca">Solar + pool</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="sale" href="casa-cervera.html">
+<div class="property-img">
+<img alt="Casa Cervera, courtyard at dusk, Emiliano Zapata Norte, Mérida" loading="lazy" src="thumb-casa-cervera.jpg"/>
+<span class="property-badge" data-en="For sale" data-es="En venta">For sale</span>
+<span class="property-ref">CRV</span>
+</div>
+<div class="property-info">
+<h3>Casa Cervera</h3>
+<p class="property-loc">Emiliano Zapata Norte · Mérida</p>
+<p class="property-price">$10,500,000 <span>MXN</span></p>
+<div class="property-meta">
+<span data-en="3 bed" data-es="3 rec">3 bed</span><span data-en="4½ bath" data-es="4½ baños">4½ bath</span><span>490 m²</span><span data-en="Award-winning design" data-es="Diseño premiado">Award-winning design</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="sale" href="cabo-norte-boreta.html">
+<div class="property-img">
+<img alt="Cabo Norte · Boreta, stone façade among trees, Cabo Norte, Mérida" loading="lazy" src="thumb-cabo-norte-boreta.jpg"/>
+<span class="property-badge" data-en="For sale" data-es="En venta">For sale</span>
+<span class="property-ref">CNB</span>
+</div>
+<div class="property-info">
+<h3>Cabo Norte · Boreta</h3>
+<p class="property-loc">Privada Boreta · Cabo Norte</p>
+<p class="property-price">$11,900,000 <span>MXN</span></p>
+<div class="property-meta">
+<span data-en="6 bed" data-es="6 rec">6 bed</span><span data-en="6 bath" data-es="6 baños">6 bath</span><span>635 m²</span><span data-en="New build" data-es="Obra nueva">New build</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="sale" href="departamento-46h-ameka.html">
+<div class="property-img">
+<img alt="Apartment 46H, Ameka Urban Condos, Montealbán" loading="lazy" src="thumb-departamento-46h-ameka.jpg"/>
+<span class="property-badge" data-en="For sale" data-es="En venta">For sale</span>
+<span class="property-ref">AMK-46H</span>
+</div>
+<div class="property-info">
+<h3 data-en="Apartment 46H · Ameka" data-es="Departamento 46H · Ameka">Apartment 46H · Ameka</h3>
+<p class="property-loc">Montealbán · Mérida</p>
+<p class="property-price">$4,500,000 <span>MXN</span></p>
+<div class="property-meta">
+<span data-en="2 bed" data-es="2 rec">2 bed</span><span data-en="2½ bath" data-es="2½ baños">2½ bath</span><span>89 m²</span><span data-en="Delivery June 2027" data-es="Entrega junio 2027">Delivery June 2027</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="rent" href="departamento-304a-tuscania.html">
+<div class="property-img">
+<img alt="Apartment 304A, Tuscania, Temozón Norte" loading="lazy" src="thumb-departamento-304a-tuscania.jpg"/>
+<span class="property-badge" data-en="For rent" data-es="En renta">For rent</span>
+<span class="property-ref">TUS-304A</span>
+</div>
+<div class="property-info">
+<h3 data-en="Apartment 304A · Tuscania" data-es="Departamento 304A · Tuscania">Apartment 304A · Tuscania</h3>
+<p class="property-loc">Tuscania · Temozón Norte</p>
+<p class="property-price">$17,000 <span data-en="MXN / month" data-es="MXN / mes">MXN / month</span></p>
+<div class="property-meta">
+<span data-en="2 bed" data-es="2 rec">2 bed</span><span data-en="2 bath" data-es="2 baños">2 bath</span><span>112 m²</span><span data-en="Private rooftop" data-es="Roof privado">Private rooftop</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+<a class="property-card" data-type="rent" href="casa-cholul.html">
+<div class="property-img">
+<img alt="The chukum pool and garden at Casa Cholul" loading="lazy" src="thumb-casa-cholul.jpg"/>
+<span class="property-badge" data-en="For rent" data-es="En renta">For rent</span>
+<span class="property-ref">CHL</span>
+</div>
+<div class="property-info">
+<h3>Casa Cholul</h3>
+<p class="property-loc">Cholul · Mérida</p>
+<p class="property-price">$23,000 <span data-en="MXN / month" data-es="MXN / mes">MXN / month</span></p>
+<div class="property-meta">
+<span data-en="3 bed" data-es="3 rec">3 bed</span><span data-en="3½ bath" data-es="3½ baños">3½ bath</span><span data-en="Chukum pool" data-es="Alberca de chukum">Chukum pool</span><span data-en="Large garden" data-es="Jardín amplio">Large garden</span>
+</div>
+<p class="property-view" data-en="View listing →" data-es="Ver propiedad →">View listing →</p>
+</div>
+</a>
+</div>
+<p class="empty" data-en="Nothing in this category right now — follow us on Instagram for new listings." data-es="Por ahora no hay nada en esta categoría — síguenos en Instagram para ver las nuevas propiedades." hidden="" id="empty">Nothing in this category right now — follow us on Instagram for new listings.</p>
+</div>
+</div>
+<!-- ENQUIRY -->
+<section class="enquiry">
+<h2 data-en="Interested in one of these?" data-es="¿Te interesa alguna?">Interested in one of these?</h2>
+<p data-en="We show properties in Spanish and English, in person or on a video walk-through, and guide foreign buyers through the fideicomiso step by step." data-es="Mostramos propiedades en español e inglés, en persona o en un recorrido por video, y acompañamos a compradores extranjeros por el proceso de fideicomiso paso a paso.">We show properties in Spanish and English, in person or on a video walk-through, and guide foreign buyers through the fideicomiso step by step.</p>
+<a class="btn-primary" data-en="WhatsApp us" data-es="Escríbenos por WhatsApp" href="https://wa.me/529993355302" target="_blank">WhatsApp us</a>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div class="footer-top">
+<div class="footer-brand">
+<img alt="Naah Collective" src="Naah_White.png"/>
+<p data-en="A curated collective of local experts helping you buy and invest in Mérida with clarity and confidence." data-es="Un colectivo de expertos locales que te acompaña a comprar e invertir en Mérida con claridad y confianza.">A curated collective of local experts helping you buy and invest in Mérida with clarity and confidence.</p>
+</div>
+<div class="footer-col">
+<h4 data-en="Quick Links" data-es="Enlaces">Quick Links</h4>
+<ul>
+<li><a data-en="Home" data-es="Inicio" href="index.html">Home</a></li>
+<li><a data-en="About us" data-es="Nosotros" href="index.html#about">About us</a></li>
+<li><a data-en="Services" data-es="Servicios" href="index.html#services">Services</a></li>
+<li><a data-en="Zones" data-es="Zonas" href="zones.html">Zones</a></li>
+<li><a data-en="Listings" data-es="Propiedades" href="listings.html">Listings</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4 data-en="Areas" data-es="Zonas">Areas</h4>
+<ul>
+<li><a href="zones.html#centro">Centro Histórico</a></li>
+<li><a href="zones.html#cholul">Cholul</a></li>
+<li><a href="zones.html#conkal">Conkal</a></li>
+</ul>
+</div>
+<div class="footer-col footer-contact">
+<h4 data-en="Get in touch" data-es="Contacto">Get in touch</h4>
+<p>+52 999 335 5302</p>
+<p>josh@naahcollective.com</p>
+<p><span>Mérida, Yucatán,</span><br/><span data-en="Mexico" data-es="México">Mexico</span></p>
+</div>
+</div>
+<div class="footer-bottom">
+<p data-en="Copyright © 2025 Naah Collective. All rights reserved." data-es="Copyright © 2025 Naah Collective. Todos los derechos reservados.">Copyright © 2025 Naah Collective. All rights reserved.</p>
+<div class="social-links">
+<a href="https://facebook.com/naahcollective" target="_blank">fb</a>
+<a href="https://instagram.com/naah.collective" target="_blank">ig</a>
+<a href="https://wa.me/529993355302" target="_blank">wa</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+var currentFilter = 'all';
+
+function setFilter(btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilter(btn.dataset.filter);
+}
+
+window.onNaahLangChange = function() { applyFilter(currentFilter); };
+
+function isSold(c) { return c.dataset.status === 'sold'; }
+
+// Sold cards go to the end of the grid, after everything available (order otherwise kept).
+(function sortSold() {
+  const grid = document.getElementById('grid');
+  Array.prototype.slice.call(grid.querySelectorAll('.property-card'))
+    .filter(isSold).forEach(c => grid.appendChild(c));
+})();
+
+function applyFilter(type) {
+  currentFilter = type;
+  const es = document.documentElement.lang === 'es';
+  const cards = document.querySelectorAll('.property-card');
+  let shown = 0, avail = 0, sold = 0;
+  cards.forEach(c => {
+    const s = isSold(c);
+    if (s) sold++; else avail++;
+    const match = type === 'all' ? true
+                : type === 'sold' ? s
+                : (!s && c.dataset.type === type);
+    c.hidden = !match;
+    if (match) shown++;
+  });
+  const tab = document.getElementById('soldTab');
+  if (tab) tab.hidden = sold === 0;
+  document.getElementById('empty').hidden = shown > 0;
+  let txt;
+  if (shown === 0) txt = '';
+  else if (type === 'all' && sold > 0)
+    txt = avail + (es ? (avail === 1 ? ' disponible' : ' disponibles') : ' available') + ' · ' +
+          sold + (es ? (sold === 1 ? ' vendida' : ' vendidas') : ' sold');
+  else if (type === 'sold')
+    txt = shown + (es ? (shown === 1 ? ' vendida' : ' vendidas') : ' sold');
+  else
+    txt = shown + (shown === 1 ? (es ? ' propiedad' : ' property') : (es ? ' propiedades' : ' properties'));
+  document.getElementById('count').textContent = txt;
+}
+
+applyFilter('all');
+</script>
+<script>
+(function(){
+  var nodes = document.querySelectorAll("[data-en]");
+  var buttons = document.querySelectorAll(".lang button");
+  function setLang(lang){
+    nodes.forEach(function(n){
+      var v = n.getAttribute("data-" + lang);
+      if (v !== null) n.textContent = v;
+    });
+    buttons.forEach(function(b){
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
+    });
+    document.documentElement.setAttribute("lang", lang);
+    try { localStorage.setItem("naah-lang", lang); } catch (e) {}
+    if (typeof window.onNaahLangChange === "function") window.onNaahLangChange(lang);
+  }
+  buttons.forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem("naah-lang"); } catch (e) {}
+  setLang(saved === "es" ? "es" : "en");
+})();
+</script>
+</body>
+</html>
