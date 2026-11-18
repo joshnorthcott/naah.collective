@@ -137,6 +137,10 @@ h1{
 .price-wrap{text-align:right; margin-left:auto}
 .price{font-size:clamp(24px,3.2vw,32px); font-weight:400; letter-spacing:-.01em; white-space:nowrap; font-variant-numeric:tabular-nums}
 .price-note{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); margin-top:6px}
+.price .alt{display:block; font-size:13px; color:var(--ink-3); margin-top:4px; font-weight:300}
+.terms{margin:0; padding:0; list-style:none}
+.terms li{display:flex; justify-content:space-between; gap:20px; padding:10px 0; border-bottom:1px solid var(--line-soft); font-size:14.5px; color:var(--ink-2)}
+.terms li b{font-weight:400; color:var(--ink); text-align:right}
 
 /* ---------- layout ---------- */
 .grid{
@@ -292,7 +296,7 @@ footer a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(-
       <p class="place" data-en="North Mérida, Yucatán" data-es="Norte de Mérida, Yucatán">North Mérida, Yucatán</p>
     </div>
     <div class="price-wrap">
-      <div class="price">$3,699,000 MXN</div>
+      <div class="price">$3,699,000 MXN<span class="alt" data-en="approx. USD $202,000" data-es="aprox. USD $202,000">approx. USD $202,000</span></div>
       <div class="price-note" data-en="Asking price · negotiable" data-es="Precio de venta · negociable">Asking price · negotiable</div>
     </div>
   </div>
@@ -398,6 +402,18 @@ footer a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(-
         <img src="images/casa-11g-botanico-24.jpg" alt="Shaded pavilion with barbecue and dining table" loading="lazy" decoding="async">
         <img src="images/casa-11g-botanico-25.jpg" alt="Children's playground under the trees" loading="lazy" decoding="async">
       </div>
+
+      <h2 class="sec" data-en="Purchase terms" data-es="Condiciones de compra">Purchase terms</h2>
+      <ul class="terms">
+        <li><span data-en="Asking price" data-es="Precio de venta">Asking price</span><b data-en="$3,699,000 MXN · negotiable" data-es="$3,699,000 MXN · negociable">$3,699,000 MXN · negotiable</b></li>
+        <li><span data-en="What&#x27;s included" data-es="Qué incluye">What&#x27;s included</span><b data-en="Unfurnished · fixtures and fittings only" data-es="Sin amueblar · sólo instalaciones y acabados">Unfurnished · fixtures and fittings only</b></li>
+        <li><span data-en="Minimum deposit" data-es="Depósito mínimo">Minimum deposit</span><b class="num">$20,000 MXN</b></li>
+        <li><span data-en="Mortgage accepted" data-es="Acepta crédito">Mortgage accepted</span><b data-en="Yes · own funds or Mexican bank credit" data-es="Sí · recurso propio o crédito bancario">Yes · own funds or Mexican bank credit</b></li>
+        <li><span data-en="Maintenance fee" data-es="Cuota de mantenimiento">Maintenance fee</span><b data-en="$1,800 MXN / month" data-es="$1,800 MXN / mes">$1,800 MXN / month</b></li>
+        <li><span data-en="Predial (property tax)" data-es="Predial">Predial (property tax)</span><b data-en="$2,000 MXN / year" data-es="$2,000 MXN / año">$2,000 MXN / year</b></li>
+        <li><span data-en="Title for a foreign buyer" data-es="Titularidad para extranjeros">Title for a foreign buyer</span><b data-en="Fideicomiso (bank trust)" data-es="Fideicomiso">Fideicomiso (bank trust)</b></li>
+        <li><span data-en="Availability" data-es="Disponibilidad">Availability</span><b data-en="Immediate" data-es="Inmediata">Immediate</b></li>
+      </ul>
     </main>
 
     <!-- ============ RAIL ============ -->
@@ -447,8 +463,8 @@ footer a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(-
       <a href="mailto:josh@naahcollective.com">josh@naahcollective.com</a>
       <a href="https://wa.me/529993355302">+52 999 335 5302</a>
     </div>
-    <p class="disclaimer" data-en="Information is believed reliable but is not guaranteed and may change without notice; areas, specifications and price are subject to confirmation. Images may have been digitally enhanced or staged and may not reflect the property's current condition. Interested parties should verify conditions in person, by appointment."
-       data-es="La información proviene de fuente confiable pero no está garantizada y puede cambiar sin previo aviso; superficies, especificaciones y precio están sujetos a confirmación. Las imágenes pueden haber sido mejoradas digitalmente o presentar mobiliario y decoración ilustrativos, y pueden no reflejar la condición actual de la propiedad. Las partes interesadas deberán confirmar las condiciones en persona, previa cita.">Information is believed reliable but is not guaranteed and may change without notice; areas, specifications and price are subject to confirmation. Images may have been digitally enhanced or staged and may not reflect the property's current condition. Interested parties should verify conditions in person, by appointment.</p>
+    <p class="disclaimer" data-en="Information is believed reliable but is not guaranteed and may change without notice; areas, specifications and price are subject to confirmation. The USD figure is for reference only and moves with the exchange rate. Images may have been digitally enhanced or staged and may not reflect the property's current condition. Interested parties should verify conditions in person, by appointment."
+       data-es="La información proviene de fuente confiable pero no está garantizada y puede cambiar sin previo aviso; superficies, especificaciones y precio están sujetos a confirmación. La cifra en USD es solo de referencia y varía con el tipo de cambio. Las imágenes pueden haber sido mejoradas digitalmente o presentar mobiliario y decoración ilustrativos, y pueden no reflejar la condición actual de la propiedad. Las partes interesadas deberán confirmar las condiciones en persona, previa cita.">Information is believed reliable but is not guaranteed and may change without notice; areas, specifications and price are subject to confirmation. The USD figure is for reference only and moves with the exchange rate. Images may have been digitally enhanced or staged and may not reflect the property's current condition. Interested parties should verify conditions in person, by appointment.</p>
   </div>
 </footer>
 
